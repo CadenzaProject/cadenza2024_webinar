@@ -6,8 +6,8 @@ root: intro
 parts:
   - caption: "Getting Starting"
     chapters:
-      - file: getting_started/Installing_Clarity_Cadenza
-      - file: getting_started/Interacting_with_Metadata
+      - file: getting_started/installing_code
+      - file: getting_started/interact_metadata
   - caption: Challenges
     chapters:
       - file: cad1/task1
