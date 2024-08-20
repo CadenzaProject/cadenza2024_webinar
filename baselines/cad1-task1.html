@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -516,11 +516,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/clarity/recipes/cad1/task1/baseline&#39;
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/clarity/recipes/cad1/task1/baseline
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/content/clarity/recipes/cad1/task1/baseline&#39;
 </pre></div>
 </div>
 </div>
@@ -537,7 +536,43 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat: config.yaml: No such file or directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>path:
+  root: ./
+  metadata_dir: ${path.root}/task1/metadata
+  music_dir: ${path.root}/task1/audio/musdb18hq
+  music_train_file: ${path.metadata_dir}/musdb18.train.json
+  music_valid_file: ${path.metadata_dir}/musdb18.valid.json
+  listeners_train_file: ${path.metadata_dir}/listeners.train.json
+  listeners_valid_file: ${path.metadata_dir}/listeners.valid.json
+  exp_folder: ./exp # folder to store enhanced signals and final results
+
+nalr:
+  nfir: 220
+  fs: 44100
+
+apply_compressor: False
+compressor:
+  threshold: 0.35
+  attenuation: 0.1
+  attack: 50
+  release: 1000
+  rms_buffer_size: 0.064
+
+soft_clip: True
+
+separator:
+  device: ~
+
+evaluate:
+  set_random_seed: True
+  small_test: False
+  batch_size: 5  # Number of batches
+  batch: 0       # Batch number to evaluate
+
+# hydra config
+hydra:
+  run:
+    dir: ${path.exp_folder}
 </pre></div>
 </div>
 </div>
@@ -608,7 +643,8 @@ path.root=../cadenza_data_demo/cad1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-03-03 11:30:24,122][torchaudio.utils.download][INFO] - The local file (/root/.cache/torch/hub/torchaudio/models/hdemucs_high_musdbhq_only.pt) exists. Skipping the download.
+[2023-03-03 11:30:24,614][__main__][INFO] - [001/001)] Processing Actions - One Minute Smile for L5076...
 </pre></div>
 </div>
 </div>
