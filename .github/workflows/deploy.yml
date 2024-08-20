@@ -1,7 +1,7 @@
 name: deploy-book
 
 on:
-  # Trigger the deploy on push to main branch
+  # Trigger the workflow on push to main branch
   push:
     branches:
       - main
@@ -34,23 +34,18 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-      # Use default CC
-      - name: Cookiecutter no GHA
+
+      # Build the book
+      - name: Build the book
         run: |
-          cookiecutter . --no-input include_ci=no
-      # Install requirements.txt
-      - name: Install requirements
-        run: |
-          pip install -r requirements.txt
-      # Build the example book
-      - name: Build book
-        run: |
-          jupyter-book build .
+          jupyter-book build cadenza2024_webinar
+
       # Upload the book's HTML as an artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: "_build/html"
+
       # Deploy the book's HTML to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
