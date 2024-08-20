@@ -10,11 +10,11 @@ parts:
       - file: getting_started/interact_metadata
   - caption: Baseline
     chapters:
-      - file: cad2-task1
-      - file: icassp2024-task
-      - file: cad2-task2
-      - file: cad1-task1
-      - file: cad1-task2
+      - file: baselines/cad2-task1
+      - file: baselines/icassp2024-task
+      - file: baselines/cad2-task2
+      - file: baselines/cad1-task1
+      - file: baselines/cad1-task2
 
 
 
