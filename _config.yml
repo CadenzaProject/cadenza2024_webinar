@@ -35,6 +35,5 @@ html:
   announcement: "This is a beta version of the Tutorials. Please report any issues or request new tutorial on the GitHub repository."
 
 launch_buttons:
-    notebook_interface: "jupyterlab"
+    notebook_interface: "classic"
     colab_url: "https://colab.research.google.com"
-    binderhub_url: "https://mybinder.org/v2/gh/CadenzaProject/cadenza_tutorials/main?urlpath=lab"
