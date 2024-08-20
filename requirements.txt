@@ -1,3 +1,6 @@
 jupyter-book
+cookiecutter
 matplotlib
 numpy
+pytest
+black
