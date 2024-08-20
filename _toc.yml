@@ -11,7 +11,7 @@ parts:
   - caption: Baseline
     chapters:
       - file: baselines/cad2-task1
-      - file: baselines/icassp2024-task
+      - file: baselines/icassp24-task
       - file: baselines/cad2-task2
       - file: baselines/cad1-task1
       - file: baselines/cad1-task2
