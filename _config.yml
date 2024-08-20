@@ -3,12 +3,13 @@
 
 title: Cadenza Webinar - September 2024
 author: Gerardo Roa Dabike
+copyright: "2024"
 logo: figures/cadenza_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -28,5 +29,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  home_page_in_navbar: true
   use_issues_button: true
   use_repository_button: true
+  announcement: "This is a beta version of the Tutorials. Please report any issues or request new tutorial on the GitHub repository."
