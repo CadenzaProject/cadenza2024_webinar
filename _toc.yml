@@ -8,8 +8,15 @@ parts:
     chapters:
       - file: getting_started/installing_code
       - file: getting_started/interact_metadata
-  - caption: Challenges
+  - caption: First Cadenza Challenge
     chapters:
       - file: cad1/task1
       - file: cad1/task2
+  - caption: ICASSP 2024 Grand Challenge
+    chapters:
+      - file: icassp2024/task
+  - caption: Second Cadenza Challenge
+    chapters:
+      - file: cad2/task1
+      - file: cad2/task2
 
