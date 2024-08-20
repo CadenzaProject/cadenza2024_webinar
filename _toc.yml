@@ -8,3 +8,8 @@ parts:
     chapters:
       - file: getting_started/Installing_Clarity_Cadenza
       - file: getting_started/Interacting_with_Metadata
+  - caption: Challenges
+    chapters:
+      - file: cad1/task1
+      - file: cad1/task2
+
