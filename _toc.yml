@@ -8,11 +8,12 @@ parts:
     chapters:
       - file: getting_started/installing_code
       - file: getting_started/interact_metadata
-  - caption: Baseline
+      - file: getting_started/running_recipes
+  - caption: Baselines
     chapters:
       - file: baselines/cad2-task1
-      - file: baselines/icassp24-task
       - file: baselines/cad2-task2
+      - file: baselines/icassp24-task
       - file: baselines/cad1-task1
       - file: baselines/cad1-task2
 
