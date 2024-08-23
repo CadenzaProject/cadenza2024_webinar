@@ -37,3 +37,8 @@ html:
 launch_buttons:
     notebook_interface: "classic"
     colab_url: "https://colab.research.google.com"
+
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+    bibtex_bibfiles: "references.bib"
