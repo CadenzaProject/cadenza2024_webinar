@@ -18,6 +18,8 @@ parts:
 #      - file: baselines/icassp24-task
 #      - file: baselines/cad1-task1
 #      - file: baselines/cad1-task2
-
+  - caption: "References"
+    chapters:
+      - file: references
 
 
