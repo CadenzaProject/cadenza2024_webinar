@@ -1,0 +1,1148 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Baseline CAD2 Task1 &#8212; Cadenza Tutorials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'current_challenge/cad2-task1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Running a Cadenza Recipe" href="../getting_started/running_recipes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️</div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cadenza_logo.png" class="logo__image only-light" alt="Cadenza Tutorials - Home"/>
+    <script>document.write(`<img src="../_static/cadenza_logo.png" class="logo__image only-dark" alt="Cadenza Tutorials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Cadenza Tutorials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_code.html">The Clarity/Cadenza codebase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">Running a Cadenza Recipe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Baseline CAD2 Task1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/current_challenge/cad2-task1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fcurrent_challenge/cad2-task1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/current_challenge/cad2-task1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Baseline CAD2 Task1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lyrics-intelligibility">Lyrics Intelligibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-environment">Create the environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-enahncement">Running the enahncement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-config-parameters">The config parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhance-py">Running enhance.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-evaluate-py">Running evaluate.py</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="baseline-cad2-task1">
+<h1>Baseline CAD2 Task1<a class="headerlink" href="#baseline-cad2-task1" title="Link to this heading">#</a></h1>
+<section id="lyrics-intelligibility">
+<h2>Lyrics Intelligibility<a class="headerlink" href="#lyrics-intelligibility" title="Link to this heading">#</a></h2>
+<p>Anecdotal mishearings of lyrics are very common, and one can find numerous examples on the internet, from websites dedicated to misheard lyrics to stand-up comedies that exploit this in a humorous way.</p>
+<p>However, mishearing lyrics is a significant issue for those with hearing loss <span id="id1">[<a class="reference internal" href="../venv/lib/python3.10/site-packages/jupyter_book/book_template/markdown.html#id3" title="Alinka Greasley, Harriet Crook, and Robert Fulford. Music listening and hearing aids: perspectives from audiologists and their patients. International Journal of Audiology, 59(9):694–706, 2020.">GCF20</a>]</span>.</p>
+<p>In this second round of Cadenza Challenges, we are presenting a challenge where entrants need to process a pop/rock music signal and increase its intelligibility with minimal loss of audio quality.</p>
+<p>More details about the challenge can be found on the <a class="reference external" href="https://cadenzachallenge.org/docs/cadenza2/intro">Cadenza website</a>.</p>
+<p>This tutorial walks you through the process of running the lyrics intelligibility baseline using the shell interface.</p>
+</section>
+<section id="create-the-environment">
+<h2>Create the environment<a class="headerlink" href="#create-the-environment" title="Link to this heading">#</a></h2>
+<p>We first need to install the Clarity package. For this, we use the tag version of the challenge, <strong>v6.0.0</strong></p>
+<section id="setting-the-location-of-the-project">
+<h3>Setting the Location of the Project<a class="headerlink" href="#setting-the-location-of-the-project" title="Link to this heading">#</a></h3>
+<p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>v0.6.0<span class="w"> </span>https://github.com/claritychallenge/clarity.git
+
+<span class="n">clear_output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installing the pyClarity...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">cd</span> clarity
+<span class="o">%</span><span class="k">pip</span> install -e .
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">/clarity&#39;</span><span class="p">)</span>
+
+<span class="n">clear_output</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repository installed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repository installed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad2/task1
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/task1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: huggingface-hub in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from -r requirements.txt (line 1)) (0.23.0)
+Requirement already satisfied: jiwer in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from -r requirements.txt (line 2)) (3.0.3)
+Requirement already satisfied: openai-whisper in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from -r requirements.txt (line 3)) (20231117)
+Requirement already satisfied: safetensors in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from -r requirements.txt (line 4)) (0.4.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: filelock in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (3.13.1)
+Requirement already satisfied: fsspec&gt;=2023.5.0 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (2023.12.2)
+Requirement already satisfied: packaging&gt;=20.9 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (23.2)
+Requirement already satisfied: pyyaml&gt;=5.1 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (6.0.1)
+Requirement already satisfied: requests in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (2.31.0)
+Requirement already satisfied: tqdm&gt;=4.42.1 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (4.66.1)
+Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from huggingface-hub-&gt;-r requirements.txt (line 1)) (4.12.2)
+Requirement already satisfied: click&lt;9.0.0,&gt;=8.1.3 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from jiwer-&gt;-r requirements.txt (line 2)) (8.1.7)
+Requirement already satisfied: rapidfuzz&lt;4,&gt;=3 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from jiwer-&gt;-r requirements.txt (line 2)) (3.8.1)
+Requirement already satisfied: triton&lt;3,&gt;=2.0.0 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (2.1.0)
+Requirement already satisfied: numba in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (0.59.0rc1)
+Requirement already satisfied: numpy in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (1.26.3)
+Requirement already satisfied: torch in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (2.1.2)
+Requirement already satisfied: more-itertools in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (10.2.0)
+Requirement already satisfied: tiktoken in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from openai-whisper-&gt;-r requirements.txt (line 3)) (0.6.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: llvmlite&lt;0.43,&gt;=0.42.0dev0 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from numba-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (0.42.0rc1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from requests-&gt;huggingface-hub-&gt;-r requirements.txt (line 1)) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from requests-&gt;huggingface-hub-&gt;-r requirements.txt (line 1)) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from requests-&gt;huggingface-hub-&gt;-r requirements.txt (line 1)) (2.1.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from requests-&gt;huggingface-hub-&gt;-r requirements.txt (line 1)) (2023.11.17)
+Requirement already satisfied: regex&gt;=2022.1.18 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from tiktoken-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (2023.12.25)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (1.12)
+Requirement already satisfied: networkx in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (3.2.1)
+Requirement already satisfied: jinja2 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (3.1.3)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.18.1 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (2.18.1)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.1.105)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from nvidia-cusolver-cu12==11.4.5.107-&gt;torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (12.3.101)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from jinja2-&gt;torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (2.1.3)
+Requirement already satisfied: mpmath&gt;=0.19 in /home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages (from sympy-&gt;torch-&gt;openai-whisper-&gt;-r requirements.txt (line 3)) (1.3.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="get-the-demo-data">
+<h2>Get the demo data<a class="headerlink" href="#get-the-demo-data" title="Link to this heading">#</a></h2>
+<p>The next step is to download a demo data package that will help demonstrate the process. This package has the same structure as the official data package, so it will help you understand how the files are organized.</p>
+<p>Before continuing, it is recommended that you familiarize yourself with the data structure and content, which you can find on the <a class="reference external" href="https://cadenzachallenge.org/docs/cadenza2/Lyric%20Intelligibility/lyric_data">website</a>.</p>
+<p>Now, let’s download the data…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity
+<span class="o">!</span>gdown<span class="w"> </span>1UqiqwYJuyC1o-C14DpVL4QYncsOGCvHF
+<span class="o">!</span>mv<span class="w"> </span>cad2_demo_data.tar.xz<span class="w"> </span>recipes/cad2
+<span class="o">%</span><span class="k">cd</span> recipes/cad2
+<span class="o">!</span>tar<span class="w"> </span>-xf<span class="w"> </span>cad2_demo_data.tar.xz
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading...
+From (original): https://drive.google.com/uc?id=1UqiqwYJuyC1o-C14DpVL4QYncsOGCvHF
+From (redirected): https://drive.google.com/uc?id=1UqiqwYJuyC1o-C14DpVL4QYncsOGCvHF&amp;confirm=t&amp;uuid=23bdeb1d-f9a5-4347-9815-bd31efbe4809
+To: /home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/cad2_demo_data.tar.xz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                | 0.00/132M [00:00&lt;?, ?B/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|█▍                                     | 4.72M/132M [00:00&lt;00:03, 34.5MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████▉                                  | 16.8M/132M [00:00&lt;00:01, 77.1MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▍                               | 25.2M/132M [00:00&lt;00:01, 58.6MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|██████████                             | 34.1M/132M [00:00&lt;00:01, 61.9MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|█████████████▍                         | 45.6M/132M [00:00&lt;00:01, 77.0MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████████████████▍                      | 55.6M/132M [00:00&lt;00:00, 83.2MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|███████████████████▊                   | 67.1M/132M [00:00&lt;00:00, 91.9MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|██████████████████████▊                | 77.1M/132M [00:00&lt;00:00, 93.2MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|█████████████████████████▋             | 87.0M/132M [00:01&lt;00:00, 94.5MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|█████████████████████████████▉          | 98.6M/132M [00:01&lt;00:00, 100MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|█████████████████████████████████       | 109M/132M [00:01&lt;00:00, 90.0MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|███████████████████████████████████▉    | 118M/132M [00:01&lt;00:00, 56.7MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|███████████████████████████████████████▍| 130M/132M [00:01&lt;00:00, 67.8MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████| 132M/132M [00:01&lt;00:00, 75.1MB/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data installed
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="changing-working-directory">
+<h2>Changing working Directory<a class="headerlink" href="#changing-working-directory" title="Link to this heading">#</a></h2>
+<p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad2/task1/baseline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/task1/baseline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s save the <code class="docutils literal notranslate"><span class="pre">root_data</span></code> path</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root_data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1&quot;</span>
+<span class="o">!</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">{</span>root_data<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 8
+drwxr-xr-x 3 gerardoroadabike gerardoroadabike 4096 Aug 22 15:20 audio
+drwxr-xr-x 2 gerardoroadabike gerardoroadabike 4096 Aug 22 15:19 metadata
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-the-enahncement">
+<h2>Running the enahncement<a class="headerlink" href="#running-the-enahncement" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">enhancement</span></code> baseline employs a ConvTasNet model to separate the lyrics from the background accompaniment. This model was trained for causal and non-causal cases. The pre-trained models are stored on Huggingface. The causality is defined in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>.</p>
+<section id="the-config-parameters">
+<h3>The config parameters<a class="headerlink" href="#the-config-parameters" title="Link to this heading">#</a></h3>
+<p>The parameters of the baseline are define in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> file.</p>
+<hr class="docutils" />
+<p>First, it configures the paths to metadata, audio files and, location for the output files.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">path</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">???</span><span class="w">   </span><span class="c1"># Set to the root of the dataset</span>
+<span class="w">  </span><span class="nt">metadata_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/metadata</span>
+<span class="w">  </span><span class="nt">music_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/audio</span>
+<span class="w">  </span><span class="nt">musics_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/music.valid.json</span>
+<span class="w">  </span><span class="nt">alphas_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/alpha.json</span>
+<span class="w">  </span><span class="nt">listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/listeners.valid.json</span>
+<span class="w">  </span><span class="nt">enhancer_params_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/compressor_params.valid.json</span>
+<span class="w">  </span><span class="nt">scenes_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scene.valid.json</span>
+<span class="w">  </span><span class="nt">scene_listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scene_listeners.valid.json</span>
+<span class="w">  </span><span class="nt">exp_folder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./exp_${separator.causality}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path.root</span></code>: must be set to the location of the dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exp_folder</span></code>: by default, the name of the folder it’s using the causality parameter. But this can be cahnge according your requirements</p></li>
+</ul>
+<hr class="docutils" />
+<p>The next parameters are the different sample rates</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">input_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">44100</span><span class="w"> </span><span class="c1"># sample rate of the input mixture</span>
+<span class="nt">remix_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">44100</span><span class="w"> </span><span class="c1"># sample rate for the output remixed signal</span>
+<span class="nt">HAAQI_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24000</span><span class="w"> </span><span class="c1"># sample rate for computing HAAQI score</span>
+</pre></div>
+</div>
+<p>The HAAQI sample rate is uses by HAAQI in the evaluation.</p>
+<hr class="docutils" />
+<p>The next parameters are related to the separation and how it will operate</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">separator</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">causality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">causal</span>
+<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+<span class="w">  </span><span class="nt">separation</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">number_sources</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">segment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6.0</span>
+<span class="w">    </span><span class="nt">overlap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">    </span><span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${input_sample_rate}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">separator.causality</span></code>: this is where we set the causlaity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">separator.separation</span></code>: these parameters are used for separate large signals using fade and overlap.</p></li>
+</ul>
+<hr class="docutils" />
+<p>The <code class="docutils literal notranslate"><span class="pre">enhancer</span></code> parameters are common parameters used by the multiband dynamic range compressor.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">enhancer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crossover_frequencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">353.55</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">707.11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1414.21</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2828.43</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5656.85</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># [250, 500, 1000, 2000, 4000] * sqrt(2)</span>
+<span class="w">  </span><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">100</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">-30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-30</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>You are free to change the parameters if you believe it may improve the signal for the listener panel. However, the evaluation will use these parameters, and your changes may result in lower objective HAAQI scores, as this metric is based on the correlation between the enhanced and reference signals.</p>
+<hr class="docutils" />
+<p>The last parameters set some of the evaluation configurations</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">evaluate</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">whisper_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base.en</span>
+<span class="w">  </span><span class="nt">set_random_seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">small_test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">save_intermediate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">equiv_0db_spl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">  </span><span class="c1"># Number of batches</span>
+<span class="w">  </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">       </span><span class="c1"># Batch number to evaluate</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">whisper_version</span></code> is indicating what version of Whisper are we using for the intelligibility metric.</p>
+</section>
+<section id="running-enhance-py">
+<h3>Running <a class="reference external" href="http://enhance.py">enhance.py</a><a class="headerlink" href="#running-enhance-py" title="Link to this heading">#</a></h3>
+<p>The process goes as:</p>
+<ol class="arabic simple">
+<li><p>Loading the different metadata files into dictionaries.</p></li>
+<li><p>Load the causal or non-causal separation model using the method <code class="docutils literal notranslate"><span class="pre">load_separation_model()</span></code>.</p></li>
+<li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">MultibandCompressor</span></code>.</p></li>
+<li><p>Load the scenes and listeners per scenes</p></li>
+<li><p>Process one scene at a time</p></li>
+</ol>
+<p>In shell, we can call the enhancer as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>enhance.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>path.root<span class="o">={</span>root_data<span class="o">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s1">&#39;path.listeners_file=${path.metadata_dir}/listeners.demo.json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s1">&#39;path.enhancer_params_file=${path.metadata_dir}/compressor_params.demo.json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s1">&#39;path.scenes_file=${path.metadata_dir}/scenes.demo.json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s1">&#39;path.scene_listeners_file=${path.metadata_dir}/scene_listeners.demo.json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s1">&#39;path.musics_file=${path.metadata_dir}/music.demo.json&#39;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">={</span>root_data<span class="o">}</span><span class="w"> </span>path.listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/listeners.demo.json<span class="w"> </span>path.enhancer_params_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/compressor_params.demo.json<span class="w"> </span>path.scenes_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scene.demo.json<span class="w"> </span>path.scene_listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scene_listeners.demo.json<span class="w"> </span>path.musics_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/music.demo.json
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1&#39;, &#39;path.listeners_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/listeners.demo.json&#39;, &#39;path.enhancer_params_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/compressor_params.demo.json&#39;, &#39;path.scenes_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/scene.demo.json&#39;, &#39;path.scene_listeners_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/scene_listeners.demo.json&#39;, &#39;path.musics_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/music.demo.json&#39;]
+Traceback (most recent call last):
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/task1/baseline/enhance.py&quot;, line 210, in enhance
+    scenes_listeners = json.load(file)
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/__init__.py&quot;, line 293, in load
+    return loads(fp.read(),
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/__init__.py&quot;, line 346, in loads
+    return _default_decoder.decode(s)
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/decoder.py&quot;, line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/decoder.py&quot;, line 355, in raw_decode
+    raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 4 column 3 (char 31)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>In the prevoius cell, we processed 2 different audio signals, each for a specific target listener.
+The process of a scene goes as:</p>
+<ol class="arabic simple">
+<li><p>Load the original mixture and select the requested segment</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">input_mixture</span><span class="p">,</span> <span class="n">input_sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span>
+    <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">music_dir</span><span class="p">)</span>
+    <span class="o">/</span> <span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;path&quot;</span><span class="p">]</span>
+    <span class="o">/</span> <span class="s2">&quot;mixture.flac&quot;</span>
+<span class="p">)</span>
+<span class="n">start_sample</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+    <span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span>
+<span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;end_time&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p>Normalise to -40 dB LUFS. This is important for the compressor later.</p></li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Separate the vocals from the background</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">est_sources</span> <span class="o">=</span> <span class="n">separate_sources</span><span class="p">(</span>
+    <span class="n">separation_model</span><span class="p">,</span>
+    <span class="n">input_mixture</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">separator</span><span class="o">.</span><span class="n">separation</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">vocals</span><span class="p">,</span> <span class="n">accompaniment</span> <span class="o">=</span> <span class="n">est_sources</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p>Downmix to stereo using the alpha as input parameter</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">downmix_signal</span><span class="p">(</span><span class="n">vocals</span><span class="p">,</span> <span class="n">accompaniment</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p>Aply the hearing aid amplification using the multiband compressor and the listener audiograms</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">enhancer</span><span class="o">.</span><span class="n">set_compressors</span><span class="p">(</span><span class="o">**</span><span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">])</span>
+<span class="n">left_enhanced</span> <span class="o">=</span> <span class="n">enhancer</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">enhanced_signal</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+
+<span class="n">enhancer</span><span class="o">.</span><span class="n">set_compressors</span><span class="p">(</span><span class="o">**</span><span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">])</span>
+<span class="n">right_enhanced</span> <span class="o">=</span> <span class="n">enhancer</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">enhanced_signal</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+
+<span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">left_enhanced</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">right_enhanced</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p>Save the enhanced signal in FLAC. These are saved in the directory <code class="docutils literal notranslate"><span class="pre">enhanced_signals</span></code> within the experiment path <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code> defined in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">{</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad2/task1/baseline/exp_causal/enhanced_signals
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 0
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Let’s listen to these signals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">clarity.utils.flac_encoder</span> <span class="kn">import</span> <span class="n">read_flac_signal</span>
+<span class="kn">from</span> <span class="nn">clarity.utils.signal_processing</span> <span class="kn">import</span> <span class="n">resample</span>
+<span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+
+<span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="s2">&quot;clarity/recipes/cad2/task1/baseline/exp_causal/enhanced_signals&quot;</span> 
+<span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.flac&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">file_to_play</span> <span class="ow">in</span> <span class="n">audio_files</span><span class="p">:</span>
+  <span class="n">signal</span><span class="p">,</span> <span class="n">sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span><span class="n">file_to_play</span><span class="p">)</span>
+  <span class="n">signal</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_to_play</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">16000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="running-evaluate-py">
+<h3>Running <a class="reference external" href="http://evaluate.py">evaluate.py</a><a class="headerlink" href="#running-evaluate-py" title="Link to this heading">#</a></h3>
+<p>Now that we have enhanced audios we can use the evaluate recipe to generate HAAQI scores for the signals. The evaluation should run with the same parameters as the enhancement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>python<span class="w"> </span>evaluate.py<span class="w"> </span>path.root<span class="o">={</span>root_data<span class="o">}</span><span class="w"> </span>path.listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/listeners.demo.json<span class="w"> </span>path.enhancer_params_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/compressor_params.demo.json<span class="w"> </span>path.scenes_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scene.demo.json<span class="w"> </span>path.scene_listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scene_listeners.demo.json<span class="w"> </span>path.musics_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/music.demo.json
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-03 14:45:06,119][__main__][INFO] - Evaluating from enhanced_signals directory
+Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1&#39;, &#39;path.listeners_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/listeners.demo.json&#39;, &#39;path.enhancer_params_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/compressor_params.demo.json&#39;, &#39;path.scenes_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/scene.demo.json&#39;, &#39;path.scene_listeners_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/scene_listeners.demo.json&#39;, &#39;path.musics_file=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/demo_data/cadenza_data/cad2/task1/metadata/music.demo.json&#39;]
+Traceback (most recent call last):
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/task1/baseline/evaluate.py&quot;, line 243, in run_compute_scores
+    scenes_listeners = json.load(file)
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/__init__.py&quot;, line 293, in load
+    return loads(fp.read(),
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/__init__.py&quot;, line 346, in loads
+    return _default_decoder.decode(s)
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/decoder.py&quot;, line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File &quot;/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/json/decoder.py&quot;, line 355, in raw_decode
+    raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 4 column 3 (char 31)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The evaluation scores are save in the <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code>/scores.csv</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/clarity/recipes/cad2/task1/baseline/exp_causal/scores.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/clarity/recipes/cad2/task1/baseline/exp_causal/scores.csv&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/clarity39/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1024,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1011</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1020</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1021</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1024</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/clarity39/lib/python3.10/site-packages/pandas/io/parsers/readers.py:618,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">615</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">618</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">621</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/anaconda3/envs/clarity39/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1618,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1615</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1618</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/clarity39/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1878,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1876</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1877</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1878</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1880</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/anaconda3/envs/clarity39/lib/python3.10/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity/recipes/cad2/task1/baseline/exp_causal/scores.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The HAAQI scores are compute for the left and right ear and then save the averaged.
+The intelligibility score as compute for the left and right ear and then saved the better ear.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./current_challenge"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../getting_started/running_recipes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Running a Cadenza Recipe</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lyrics-intelligibility">Lyrics Intelligibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-environment">Create the environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-enahncement">Running the enahncement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-config-parameters">The config parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhance-py">Running enhance.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-evaluate-py">Running evaluate.py</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gerardo Roa Dabike
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

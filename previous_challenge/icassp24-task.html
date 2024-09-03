@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Baseline ICASSP Grand Challenge &#8212; Cadenza Tutorials</title>
+    <title>Baseline ICASSP 2024 Grand Challenge &#8212; Cadenza Tutorials</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'baselines/icassp24-task';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'previous_challenge/icassp24-task';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -114,7 +114,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This is a beta version of the Tutorials. Please report any issues or request new tutorial on the GitHub repository.</div>
+    <div class="bd-header-announcement__content">⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️</div>
   </div>
 
   
@@ -186,6 +186,15 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_code.html">The Clarity/Cadenza codebase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">Running a Cadenza Recipe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
     </div>
@@ -240,7 +249,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/baselines/icassp24-task.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/previous_challenge/icassp24-task.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fbaselines/icassp24-task.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fprevious_challenge/icassp24-task.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -318,7 +327,7 @@
       
       
       
-      <li><a href="../_sources/baselines/icassp24-task.ipynb" target="_blank"
+      <li><a href="../_sources/previous_challenge/icassp24-task.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Baseline ICASSP Grand Challenge</h1>
+    <h1>Baseline ICASSP 2024 Grand Challenge</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -413,14 +422,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-clarity-repository">Cloning the Clarity Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-clarity-tag-v0-4-1">Installing Clarity Tag v0.4.1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-steps-for-colab-notebooks">Additional steps for Colab Notebooks</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhancement">Running Enhancement</a></li>
 </ul>
             </nav>
         </div>
@@ -432,44 +438,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="baseline-icassp-grand-challenge">
-<h1>Baseline ICASSP Grand Challenge<a class="headerlink" href="#baseline-icassp-grand-challenge" title="Link to this heading">#</a></h1>
-<p>PLACEHOLDER</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="baseline-icassp-2024-grand-challenge">
+<h1>Baseline ICASSP 2024 Grand Challenge<a class="headerlink" href="#baseline-icassp-2024-grand-challenge" title="Link to this heading">#</a></h1>
 <p>This tutorial walks through the process of running the ICASSP Grand Challenge baseline using the shell Interface</p>
-<p>The tools and recipes included in the <a href = 'https://github.com/claritychallenge/clarity'>clarity challenge repository</a> have been designed so that they can be integrated into python scripts that entrants may use in order to generate custom datasets or to expand the default datasets using new audio or varying data creation parameters. However, for convenience, the baseline clarity tools can be accessed in the command line interface (CLI) via shell scripts.</p>
-<p>The python and shell scripts included in the repository make use of <a href='https://hydra.cc/'>Hydra</a> and <a href='https://hydra.cc/docs/plugins/submitit_launcher/'>Submitit</a>, two technologies which streamline the configuration and parallel operation of python code on both local and high performnce computing (HPC) environments.</p>
-<p>The use of hydra for configuration allows for the existing shell scripts to be easily redirected to include new audio data and modify the various parameters of the recipe.</p>
-<hr class="docutils" />
 <section id="setting-the-location-of-the-project">
 <h2>Setting the Location of the Project<a class="headerlink" href="#setting-the-location-of-the-project" title="Link to this heading">#</a></h2>
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> NBOOKROOT=/content
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: NBOOKROOT=/content
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="cloning-the-clarity-repository">
-<h2>Cloning the Clarity Repository<a class="headerlink" href="#cloning-the-clarity-repository" title="Link to this heading">#</a></h2>
-<p>We first need to install the Clarity package.</p>
+<section id="installing-clarity-tag-v0-4-1">
+<h2>Installing Clarity Tag v0.4.1<a class="headerlink" href="#installing-clarity-tag-v0-4-1" title="Link to this heading">#</a></h2>
+<p>We first need to install the Clarity package. For this we use the tag version for the challenge.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
-<span class="o">%</span><span class="k">cd</span> clarity
-<span class="o">%</span><span class="k">pip</span> install -e .
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>v0.4.1<span class="w"> </span>https://github.com/claritychallenge/clarity.git
+<span class="o">%</span><span class="k">cd</span> clarity
+
+<span class="o">%</span><span class="k">pip</span> install -e .
+
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">/clarity&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repository installed&quot;</span><span class="p">)</span>
@@ -488,11 +494,10 @@ document.write(`
 <p>We will be using music audio and listener metadata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
-
-<span class="o">!</span>gdown<span class="w"> </span>10SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS
-<span class="o">!</span>mv<span class="w"> </span>cadenza_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task1/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_data_demo.tar.xz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>1mZdh_BeUrFzGQrG6vjJnU97EDfFooLLN
+<span class="o">!</span>mv<span class="w"> </span>demo_data_icassp_2024.tar.xz<span class="w"> </span>recipes/cad_icassp_2024/baseline
+<span class="o">%</span><span class="k">cd</span> recipes/cad_icassp_2024/baseline
+<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>demo_data_icassp_2024.tar.xz
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -511,17 +516,12 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task1/baseline
-<span class="o">%</span><span class="k">pwd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad_icassp_2024/baseline
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/clarity/recipes/cad1/task1/baseline&#39;
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad_icassp_2024/baseline
 </pre></div>
 </div>
 </div>
@@ -531,85 +531,79 @@ document.write(`
 <h2>Inspecting Existing Configuration<a class="headerlink" href="#inspecting-existing-configuration" title="Link to this heading">#</a></h2>
 <p>All of the included shell scripts take configurable variables from the yaml files in the same directory as the shell script.Typically these are named <code>config.yaml</code>, however, other names may be used if more than one shell script is in a directory.</p>
 <p>We can inspect the contents of the config file using <code>!cat</code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>config.yaml
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat: config.yaml: No such file or directory
-</pre></div>
-</div>
-</div>
-</div>
-<p>The general organisation of the config files is hierarchical, with property labels depending on the script in question. The config file for the enhance and evaluate recipes contains configurable paramaters for both scripts. These include:</p>
-<ul class="simple">
-<li><p>Paths for the locations of audio files, metadata and the export location for generated files</p></li>
-<li><p>Paramaters for the NAL-R fitting</p></li>
-<li><p>Paramaters for the automatic gain control (AGC) compressor used in the baseline enhancer</p></li>
-<li><p>Parameters for the challenge evaluator</p></li>
-<li><p>Parameters necessary for Hydra to run</p></li>
-</ul>
-<p>The path.root parameter defaults to the root of the baseline and must be overrided with a dataset root path when the python script is called in the command line.</p>
-<p>e.g</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user:~$ python mypythonscript.py path.root=&#39;/path/to/project&#39;
-</pre></div>
-</div>
-<p>In this notebook we will use the environment variable <code>$NBOOKROOT</code> which we defined at the start of the tutorial.</p>
-<p>Note the lack of slash at the end of the <code>path.root</code> argument string. If you inspect a variable such as <code>path.metadata_dir</code> you will see that this slash is already included in the line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>path:
-  root: ./
-  metadata_dir: ${path.root}/task1/metadata
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">path</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">???</span>
+<span class="w">  </span><span class="nt">metadata_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/metadata</span>
+<span class="w">  </span><span class="nt">music_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/audio/at_mic_music</span>
+<span class="w">  </span><span class="nt">gains_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/gains.json</span>
+<span class="w">  </span><span class="nt">head_positions_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/head_positions.json</span>
+<span class="w">  </span><span class="nt">listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/listeners.train.json</span>
+<span class="w">  </span><span class="nt">music_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/at_mic_music.train.json</span>
+<span class="w">  </span><span class="nt">scenes_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scenes.train.json</span>
+<span class="w">  </span><span class="nt">scene_listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scene_listeners.train.json</span>
+<span class="w">  </span><span class="nt">exp_folder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./exp</span><span class="w"> </span><span class="c1"># folder to store enhanced signals and final results</span>
 
-</pre></div>
-</div>
-<p>The general form for overriding a parameter in the CLI is dot indexed. For the following entry in a <code>config.yaml</code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">:</span>
-  <span class="n">B</span><span class="p">:</span>
-    <span class="n">parameter_0</span><span class="p">:</span> <span class="n">some_value</span>
-    <span class="n">parameter_1</span><span class="p">:</span> <span class="n">some_other_value</span>
-</pre></div>
-</div>
-<p>The CLI syntax to override those values would be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>User:~$ python myscript.py A.B.parameter_0=&quot;new_value&quot; A.B.parameter_1=&quot;another_new_value&quot;
+<span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">44100</span>
+<span class="nt">remix_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32000</span>
+<span class="nt">HAAQI_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24000</span>
+
+<span class="nt">nalr</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">nfir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">220</span>
+<span class="w">  </span><span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${sample_rate}</span>
+
+<span class="nt">apply_compressor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">compressor</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.35</span>
+<span class="w">  </span><span class="nt">attenuation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">  </span><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">rms_buffer_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.064</span>
+
+<span class="nt">soft_clip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">separator</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demucs</span><span class="w">   </span><span class="c1"># demucs or openunmix</span>
+<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
+
+<span class="nt">evaluate</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">set_random_seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">small_test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">  </span><span class="c1"># Number of batches</span>
+<span class="w">  </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">       </span><span class="c1"># Batch number to evaluate</span>
+
+<span class="c1"># hydra config</span>
+<span class="nt">hydra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.exp_folder}</span>
 </pre></div>
 </div>
 </section>
-<section id="shell-scripts">
-<h2>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Link to this heading">#</a></h2>
-<p>Typically, as stated above, all the work is done within python with configurable variables supplied by a <code>yaml</code> file which is parsed by Hydra inside the python code.</p>
-<p>The execution of this code is performed in the CLI and new configuration variable values are supplied as arguments to override defaults.</p>
-<hr class="docutils" />
-<section id="additional-steps-for-colab-notebooks">
-<h3>Additional steps for Colab Notebooks<a class="headerlink" href="#additional-steps-for-colab-notebooks" title="Link to this heading">#</a></h3>
-<p>This version of this tutorial is designed to run on Google Colab. The editable installation of the clarity repository is by default not visible to the python interpreter in this environment, even though the installation cell above makes the clarity tools visible to the iPython interpreter.</p>
-<p>As such, we need to make sure that the standard python interpreter called in the shell magic that follows below has the location of the clarity packages in the PYTHONPATH variable.</p>
-<p>For local environments, this step may not be necessary.</p>
+<section id="running-enhancement">
+<h2>Running Enhancement<a class="headerlink" href="#running-enhancement" title="Link to this heading">#</a></h2>
+<p>We are now ready to run the <code class="docutils literal notranslate"><span class="pre">enhance.py</span></code> python script. However, the standard configuration is designed to work with the full dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> PYTHONPATH=$PYTHONPATH:/content/clarity
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad_icassp_2024/baseline/demo_data_icassp_2024/cad_icassp_2024<span class="w"> </span><span class="s1">&#39;path.listeners_file=${path.metadata_dir}/listeners.valid.json&#39;</span><span class="w"> </span><span class="s1">&#39;path.scenes_file=${path.metadata_dir}/scenes.valid.json&#39;</span><span class="w"> </span><span class="s1">&#39;path.scene_listeners_file=${path.metadata_dir}/scene_listeners.valid.json&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: PYTHONPATH=$PYTHONPATH:/content/clarity
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad_icassp_2024/baseline/evaluate.py:191: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
 </pre></div>
 </div>
-</div>
-</div>
-<hr class="docutils" />
-<p>We are now ready to run the prepared python script. However, the standard configuration is designed to work with the full clarity dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
-python enhance.py \
-path.root=../cadenza_data_demo/cad1
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad_icassp_2024/baseline/enhance.py:183: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
+no viable alternative at input &#39;{os.environ[&#39;
+See https://hydra.cc/docs/1.2/advanced/override_grammar/basic for details
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 </pre></div>
 </div>
 </div>
@@ -649,9 +643,13 @@ path.root=../cadenza_data_demo/cad1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+</pre></div>
+</div>
+</div>
 </div>
 <p>We hope that this tutorial has been useful and has explained the process for using the recipe scripts using the Hydra configuration system. This approach can be applied to all of the recipes that are included in the repository.</p>
-</section>
 </section>
 </section>
 
@@ -668,7 +666,7 @@ path.root=../cadenza_data_demo/cad1
         },
         kernelOptions: {
             name: "python3",
-            path: "./baselines"
+            path: "./previous_challenge"
         },
         predefinedOutput: true
     }
@@ -702,14 +700,11 @@ path.root=../cadenza_data_demo/cad1
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-clarity-repository">Cloning the Clarity Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-clarity-tag-v0-4-1">Installing Clarity Tag v0.4.1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-steps-for-colab-notebooks">Additional steps for Colab Notebooks</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhancement">Running Enhancement</a></li>
 </ul>
   </nav></div>
 

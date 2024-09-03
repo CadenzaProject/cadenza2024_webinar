@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Baseline CAD2 Task1 &#8212; Cadenza Tutorials</title>
+    <title>Baseline CAD1 Task2 &#8212; Cadenza Tutorials</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'baselines/cad2-task1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'previous_challenge/cad1-task2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -114,7 +114,7 @@
 
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">This is a beta version of the Tutorials. Please report any issues or request new tutorial on the GitHub repository.</div>
+    <div class="bd-header-announcement__content">⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️</div>
   </div>
 
   
@@ -186,6 +186,15 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_code.html">The Clarity/Cadenza codebase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">Running a Cadenza Recipe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
     </div>
@@ -240,7 +249,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/baselines/cad2-task1.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/previous_challenge/cad1-task2.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fbaselines/cad2-task1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fprevious_challenge/cad1-task2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -318,7 +327,7 @@
       
       
       
-      <li><a href="../_sources/baselines/cad2-task1.ipynb" target="_blank"
+      <li><a href="../_sources/previous_challenge/cad1-task2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Baseline CAD2 Task1</h1>
+    <h1>Baseline CAD1 Task2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -417,10 +426,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-steps-for-colab-notebooks">Additional steps for Colab Notebooks</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhancement">Running Enhancement</a></li>
 </ul>
             </nav>
         </div>
@@ -432,25 +438,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="baseline-cad2-task1">
-<h1>Baseline CAD2 Task1<a class="headerlink" href="#baseline-cad2-task1" title="Link to this heading">#</a></h1>
-<p>PLACEHOLDER</p>
-<p>This tutorial walks through the process of running the CAD1 Task1 baseline using the shell Interface</p>
-<p>The tools and recipes included in the <a href = 'https://github.com/claritychallenge/clarity'>clarity challenge repository</a> have been designed so that they can be integrated into python scripts that entrants may use in order to generate custom datasets or to expand the default datasets using new audio or varying data creation parameters. However, for convenience, the baseline clarity tools can be accessed in the command line interface (CLI) via shell scripts.</p>
-<p>The python and shell scripts included in the repository make use of <a href='https://hydra.cc/'>Hydra</a> and <a href='https://hydra.cc/docs/plugins/submitit_launcher/'>Submitit</a>, two technologies which streamline the configuration and parallel operation of python code on both local and high performnce computing (HPC) environments.</p>
-<p>The use of hydra for configuration allows for the existing shell scripts to be easily redirected to include new audio data and modify the various parameters of the recipe.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="baseline-cad1-task2">
+<h1>Baseline CAD1 Task2<a class="headerlink" href="#baseline-cad1-task2" title="Link to this heading">#</a></h1>
+<p>This tutorial walks through the process of running the CAD1 Task2 baseline using the shell Interface</p>
 <hr class="docutils" />
 <section id="setting-the-location-of-the-project">
 <h2>Setting the Location of the Project<a class="headerlink" href="#setting-the-location-of-the-project" title="Link to this heading">#</a></h2>
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> NBOOKROOT=/content
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: NBOOKROOT=/content
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge&#39;
 </pre></div>
 </div>
 </div>
@@ -488,11 +492,10 @@ document.write(`
 <p>We will be using music audio and listener metadata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
-
-<span class="o">!</span>gdown<span class="w"> </span>10SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS
-<span class="o">!</span>mv<span class="w"> </span>cadenza_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task1/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_data_demo.tar.xz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>1OWn0w39t_aeOOh514wRUgTw5uSwsoB17
+<span class="o">!</span>mv<span class="w"> </span>cadenza_task2_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task2/baseline
+<span class="o">!</span><span class="nb">cd</span><span class="w"> </span>recipes/cad1/task2/baseline
+<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_task2_data_demo.tar.xz
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -511,17 +514,12 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task1/baseline
-<span class="o">%</span><span class="k">pwd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task2/baseline
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/clarity/recipes/cad1/task1/baseline&#39;
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline
 </pre></div>
 </div>
 </div>
@@ -529,87 +527,94 @@ document.write(`
 </section>
 <section id="inspecting-existing-configuration">
 <h2>Inspecting Existing Configuration<a class="headerlink" href="#inspecting-existing-configuration" title="Link to this heading">#</a></h2>
-<p>All of the included shell scripts take configurable variables from the yaml files in the same directory as the shell script.Typically these are named <code>config.yaml</code>, however, other names may be used if more than one shell script is in a directory.</p>
-<p>We can inspect the contents of the config file using <code>!cat</code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>config.yaml
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat: config.yaml: No such file or directory
-</pre></div>
-</div>
-</div>
-</div>
-<p>The general organisation of the config files is hierarchical, with property labels depending on the script in question. The config file for the enhance and evaluate recipes contains configurable paramaters for both scripts. These include:</p>
-<ul class="simple">
-<li><p>Paths for the locations of audio files, metadata and the export location for generated files</p></li>
-<li><p>Paramaters for the NAL-R fitting</p></li>
-<li><p>Paramaters for the automatic gain control (AGC) compressor used in the baseline enhancer</p></li>
-<li><p>Parameters for the challenge evaluator</p></li>
-<li><p>Parameters necessary for Hydra to run</p></li>
-</ul>
-<p>The path.root parameter defaults to the root of the baseline and must be overrided with a dataset root path when the python script is called in the command line.</p>
-<p>e.g</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user:~$ python mypythonscript.py path.root=&#39;/path/to/project&#39;
-</pre></div>
-</div>
-<p>In this notebook we will use the environment variable <code>$NBOOKROOT</code> which we defined at the start of the tutorial.</p>
-<p>Note the lack of slash at the end of the <code>path.root</code> argument string. If you inspect a variable such as <code>path.metadata_dir</code> you will see that this slash is already included in the line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>path:
-  root: ./
-  metadata_dir: ${path.root}/task1/metadata
+<p>Let’s inspect the config.yml file.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">path</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../../cadenza_task2_data_demo/cad1/task2</span>
+<span class="w">  </span><span class="nt">audio_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/audio</span>
+<span class="w">  </span><span class="nt">metadata_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/metadata</span>
+<span class="w">  </span><span class="nt">music_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.audio_dir}/music</span>
+<span class="w">  </span><span class="nt">hrtf_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.audio_dir}/eBrird</span>
+<span class="w">  </span><span class="nt">listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/listeners.valid.json</span>
+<span class="w">  </span><span class="nt">scenes_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scenes.json</span>
+<span class="w">  </span><span class="nt">scenes_listeners_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/scenes_listeners.json</span>
+<span class="w">  </span><span class="nt">hrtf_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/eBrird_BRIR.json</span>
+<span class="w">  </span><span class="nt">exp_folder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./exp</span><span class="w"> </span><span class="c1"># folder to store enhanced signals and final results</span>
 
-</pre></div>
-</div>
-<p>The general form for overriding a parameter in the CLI is dot indexed. For the following entry in a <code>config.yaml</code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">:</span>
-  <span class="n">B</span><span class="p">:</span>
-    <span class="n">parameter_0</span><span class="p">:</span> <span class="n">some_value</span>
-    <span class="n">parameter_1</span><span class="p">:</span> <span class="n">some_other_value</span>
-</pre></div>
-</div>
-<p>The CLI syntax to override those values would be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>User:~$ python myscript.py A.B.parameter_0=&quot;new_value&quot; A.B.parameter_1=&quot;another_new_value&quot;
+<span class="nt">team_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T001</span>
+
+<span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">44100</span><span class="w">          </span><span class="c1"># sample rate of the input signal</span>
+<span class="nt">enhanced_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32000</span><span class="w"> </span><span class="c1"># sample rate for the enhanced output signal</span>
+
+<span class="nt">nalr</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">nfir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">220</span>
+<span class="w">  </span><span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${sample_rate}</span>
+
+<span class="nt">compressor</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span>
+<span class="w">  </span><span class="nt">attenuation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">  </span><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">  </span><span class="nt">rms_buffer_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.064</span>
+
+<span class="nt">soft_clip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">enhance</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">average_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-14</span><span class="w">   </span><span class="c1"># Average level according Spotify&#39;s levels</span>
+<span class="w">  </span><span class="nt">min_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-19</span>
+
+<span class="nt">evaluate</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">set_random_seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">small_test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">save_intermediate_wavs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">split</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valid</span><span class="w"> </span><span class="c1"># train, valid</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">   </span><span class="c1"># Number of batches</span>
+<span class="w">  </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">      </span><span class="c1"># Batch number to evaluate</span>
+
+<span class="c1"># hydra config</span>
+<span class="nt">hydra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.exp_folder}</span>
 </pre></div>
 </div>
 </section>
-<section id="shell-scripts">
-<h2>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Link to this heading">#</a></h2>
-<p>Typically, as stated above, all the work is done within python with configurable variables supplied by a <code>yaml</code> file which is parsed by Hydra inside the python code.</p>
-<p>The execution of this code is performed in the CLI and new configuration variable values are supplied as arguments to override defaults.</p>
-<hr class="docutils" />
-<section id="additional-steps-for-colab-notebooks">
-<h3>Additional steps for Colab Notebooks<a class="headerlink" href="#additional-steps-for-colab-notebooks" title="Link to this heading">#</a></h3>
-<p>This version of this tutorial is designed to run on Google Colab. The editable installation of the clarity repository is by default not visible to the python interpreter in this environment, even though the installation cell above makes the clarity tools visible to the iPython interpreter.</p>
-<p>As such, we need to make sure that the standard python interpreter called in the shell magic that follows below has the location of the clarity packages in the PYTHONPATH variable.</p>
-<p>For local environments, this step may not be necessary.</p>
+<section id="running-enhancement">
+<h2>Running Enhancement<a class="headerlink" href="#running-enhancement" title="Link to this heading">#</a></h2>
+<p>We are now ready to run the <a class="reference external" href="http://enhance.py">enhance.py</a> python script. However, the standard configuration is designed to work with the full dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> PYTHONPATH=$PYTHONPATH:/content/clarity
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task2/baseline/cad1/task2
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: PYTHONPATH=$PYTHONPATH:/content/clarity
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
+/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/enhance.py:95: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
 </pre></div>
 </div>
-</div>
-</div>
-<hr class="docutils" />
-<p>We are now ready to run the prepared python script. However, the standard configuration is designed to work with the full clarity dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
-python enhance.py \
-path.root=../cadenza_data_demo/cad1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2&#39;]
+</pre></div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/enhance.py&quot;, line 107, in enhance
+    scenes, listener_dict, scenes_listeners = load_listeners_and_scenes(config)
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/baseline_utils.py&quot;, line 93, in load_listeners_and_scenes
+    with open(config.path.scenes_file, encoding=&quot;utf-8&quot;) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2/metadata/scenes.json&#39;
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 </pre></div>
 </div>
 </div>
@@ -617,23 +622,15 @@ path.root=../cadenza_data_demo/cad1
 <p>Now we have the enhanced output. Below, we can load and play the audio to listen to examples of the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+<span class="kn">from</span> <span class="nn">clarity.utils.flac_encoder</span> <span class="kn">import</span> <span class="n">read_flac_signal</span>
 
 <span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exp/enhanced_signals&quot;</span><span class="p">)</span>
-<span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*/*&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.wav&#39;</span><span class="p">]</span>
+<span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*/*&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.flac&#39;</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">file_to_play</span> <span class="ow">in</span> <span class="n">audio_files</span><span class="p">:</span>
-  <span class="n">sample_rate</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file_to_play</span><span class="p">)</span>
-  <span class="c1"># Take only 30 seconds</span>
-  <span class="k">if</span> <span class="n">signal</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span><span class="p">[</span><span class="mi">30</span><span class="o">*</span><span class="n">sample_rate</span><span class="p">:</span><span class="mi">60</span><span class="o">*</span><span class="n">sample_rate</span><span class="p">,</span> <span class="p">:]</span>
-  <span class="k">else</span><span class="p">:</span>
-    <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span><span class="p">[</span><span class="mi">30</span><span class="o">*</span><span class="n">sample_rate</span><span class="p">:</span><span class="mi">60</span><span class="o">*</span><span class="n">sample_rate</span><span class="p">]</span>
+  <span class="n">signal</span><span class="p">,</span> <span class="n">sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span><span class="n">file_to_play</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">file_to_play</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
   <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">))</span>
 </pre></div>
@@ -643,15 +640,62 @@ path.root=../cadenza_data_demo/cad1
 <p>Now that we have enhanced audios we can use the evaluate recipe to generate HAAQI scores for the signals. The evaluation is run in the same manner as the enhancement script.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
-python evaluate.py \
-path.root=../cadenza_data_demo/cad1
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>evaluate.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task2/baseline/cad1/task2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py&quot;, line 144, in run_calculate_audio_quality
+    scenes, listener_dict, scenes_listeners = load_listeners_and_scenes(config)
+  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/baseline_utils.py&quot;, line 93, in load_listeners_and_scenes
+    with open(config.path.scenes_file, encoding=&quot;utf-8&quot;) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2/metadata/scenes.json&#39;
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+
+<span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+
+<span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exp/evaluation_signals&quot;</span><span class="p">)</span>
+<span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*/ha_*&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.wav&#39;</span><span class="p">][:</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">signals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">file_to_play</span> <span class="ow">in</span> <span class="n">audio_files</span><span class="p">:</span>
+  <span class="n">sample_rate</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file_to_play</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_to_play</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">file_to_play</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">file_to_play</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">))</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_to_play</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">file_to_play</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;ref_signal_for_eval.wav&quot;</span><span class="p">)</span>
+  <span class="n">_</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file_to_play</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;ref_signal_for_eval.wav&quot;</span><span class="p">)</span>
+  <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>We hope that this tutorial has been useful and has explained the process for using the recipe scripts using the Hydra configuration system. This approach can be applied to all of the recipes that are included in the repository.</p>
-</section>
 </section>
 </section>
 
@@ -668,7 +712,7 @@ path.root=../cadenza_data_demo/cad1
         },
         kernelOptions: {
             name: "python3",
-            path: "./baselines"
+            path: "./previous_challenge"
         },
         predefinedOutput: true
     }
@@ -706,10 +750,7 @@ path.root=../cadenza_data_demo/cad1
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-steps-for-colab-notebooks">Additional steps for Colab Notebooks</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-enhancement">Running Enhancement</a></li>
 </ul>
   </nav></div>
 
