@@ -12,7 +12,7 @@ parts:
   - caption: Current Challenge
     chapters:
       - file: current_challenge/cad2-task1
-#      - file: current_challenge/cad2-task2
+      - file: current_challenge/cad2-task2
 #  - caption: Previous Challenges
 #    chapters:
 #      - file: baselines/icassp24-task
