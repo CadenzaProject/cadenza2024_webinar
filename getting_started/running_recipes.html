@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task2.html">Baseline CAD2 Task2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -450,7 +451,7 @@ document.write(`
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
 </pre></div>
@@ -468,10 +469,10 @@ document.write(`
 <p>We first need to install the Clarity package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
-<span class="o">%</span><span class="k">cd</span> clarity
-<span class="o">%</span><span class="k">pip</span> install -e .
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">claritychallenge</span><span class="o">/</span><span class="n">clarity</span><span class="o">.</span><span class="n">git</span>
+<span class="o">%</span><span class="n">cd</span> <span class="n">clarity</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -495,9 +496,9 @@ document.write(`
 <p>We will be using music audio and listener metadata from CAD1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>10SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS
-<span class="o">!</span>mv<span class="w"> </span>cadenza_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task1/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_data_demo.tar.xz
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">gdown</span> <span class="mi">10</span><span class="n">SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS</span>
+<span class="err">!</span><span class="n">mv</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
+<span class="err">!</span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -516,7 +517,7 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task1/baseline
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
 </pre></div>
 </div>
 </div>

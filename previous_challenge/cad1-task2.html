@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task2.html">Baseline CAD2 Task2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -447,14 +448,9 @@ document.write(`
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge&#39;
 </pre></div>
 </div>
 </div>
@@ -465,10 +461,10 @@ document.write(`
 <p>We first need to install the Clarity package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
-<span class="o">%</span><span class="k">cd</span> clarity
-<span class="o">%</span><span class="k">pip</span> install -e .
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">claritychallenge</span><span class="o">/</span><span class="n">clarity</span><span class="o">.</span><span class="n">git</span>
+<span class="o">%</span><span class="n">cd</span> <span class="n">clarity</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -492,10 +488,10 @@ document.write(`
 <p>We will be using music audio and listener metadata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>1OWn0w39t_aeOOh514wRUgTw5uSwsoB17
-<span class="o">!</span>mv<span class="w"> </span>cadenza_task2_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task2/baseline
-<span class="o">!</span><span class="nb">cd</span><span class="w"> </span>recipes/cad1/task2/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_task2_data_demo.tar.xz
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">gdown</span> <span class="mi">1</span><span class="n">OWn0w39t_aeOOh514wRUgTw5uSwsoB17</span>
+<span class="err">!</span><span class="n">mv</span> <span class="n">cadenza_task2_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span>
+<span class="err">!</span><span class="n">cd</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span>
+<span class="err">!</span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">cadenza_task2_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -514,12 +510,12 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task2/baseline
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task2/baseline
 </pre></div>
 </div>
 </div>
@@ -582,37 +578,26 @@ document.write(`
 <p>We are now ready to run the <a class="reference external" href="http://enhance.py">enhance.py</a> python script. However, the standard configuration is designed to work with the full dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task2/baseline/cad1/task2
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">enhance</span><span class="o">.</span><span class="n">py</span> <span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=</span><span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
   @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/enhance.py:95: UserWarning: 
+/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task2/baseline/enhance.py:95: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
   @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
 See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
   ret = run_job(
-Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/enhance.py&quot;, line 107, in enhance
-    scenes, listener_dict, scenes_listeners = load_listeners_and_scenes(config)
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/baseline_utils.py&quot;, line 93, in load_listeners_and_scenes
-    with open(config.path.scenes_file, encoding=&quot;utf-8&quot;) as fp:
-FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2/metadata/scenes.json&#39;
+100%|███████████████████████████████████████████| 20/20 [00:05&lt;00:00,  3.70it/s]
 
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 </pre></div>
 </div>
 </div>
@@ -620,7 +605,7 @@ Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 <p>Now we have the enhanced output. Below, we can load and play the audio to listen to examples of the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
 <span class="kn">from</span> <span class="nn">clarity.utils.flac_encoder</span> <span class="kn">import</span> <span class="n">read_flac_signal</span>
 
@@ -634,43 +619,70 @@ Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;exp/enhanced_signals&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*/*&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.flac&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">file_to_play</span> <span class="ow">in</span> <span class="n">audio_files</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>   <span class="n">signal</span><span class="p">,</span> <span class="n">sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span><span class="n">file_to_play</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now that we have enhanced audios we can use the evaluate recipe to generate HAAQI scores for the signals. The evaluation is run in the same manner as the enhancement script.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>evaluate.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task2/baseline/cad1/task2
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">py</span> <span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=</span><span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task2/baseline/evaluate.py:139: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
   @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
 See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
   ret = run_job(
-Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/evaluate.py&quot;, line 144, in run_calculate_audio_quality
-    scenes, listener_dict, scenes_listeners = load_listeners_and_scenes(config)
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/baseline_utils.py&quot;, line 93, in load_listeners_and_scenes
-    with open(config.path.scenes_file, encoding=&quot;utf-8&quot;) as fp:
-FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task2/baseline/cad1/task2/metadata/scenes.json&#39;
+[2024-08-21 10:57:38,292][__main__][INFO] - Evaluating from enhanced_signals directory
+ 10%|████▎                                      | 2/20 [04:23&lt;39:09, 130.51s/it][2024-08-21 11:03:16,806][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T041020_L5000_S2023: 24638 samples clipped in evaluation signal.
+[2024-08-21 11:03:21,229][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5000/fma_041020/ref_signal_for_eval: 526 samples clipped
+ 20%|████████▌                                  | 4/20 [08:40&lt;34:22, 128.90s/it][2024-08-21 11:07:12,158][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T058333_L5000_S2023: 36420 samples clipped in evaluation signal.
+ 25%|██████████▊                                | 5/20 [10:26&lt;30:11, 120.79s/it][2024-08-21 11:09:10,196][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T059446_L5020_S2023: 69 samples clipped in evaluation signal.
+[2024-08-21 11:09:14,510][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5020/fma_059446/ref_signal_for_eval: 92 samples clipped
+ 30%|████████████▉                              | 6/20 [12:24&lt;27:58, 119.89s/it][2024-08-21 11:11:06,476][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T064521_L5029_S2023: 1 samples clipped in evaluation signal.
+[2024-08-21 11:11:10,722][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5029/fma_064521/ref_signal_for_eval: 15 samples clipped
+ 35%|███████████████                            | 7/20 [14:21&lt;25:44, 118.77s/it][2024-08-21 11:12:56,046][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5045/fma_074945/ref_signal_for_eval: 6 samples clipped
+ 40%|█████████████████▏                         | 8/20 [16:11&lt;23:14, 116.17s/it][2024-08-21 11:14:39,021][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5093/fma_075420/ref_signal_for_eval: 6 samples clipped
+ 45%|███████████████████▎                       | 9/20 [17:52&lt;20:23, 111.23s/it][2024-08-21 11:16:02,654][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T092549_L5007_S2023: 467 samples clipped in evaluation signal.
+[2024-08-21 11:16:06,989][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5007/mtg_00539764/ref_signal_for_eval: 3 samples clipped
+ 50%|█████████████████████                     | 10/20 [19:20&lt;17:20, 104.05s/it][2024-08-21 11:17:30,211][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T098556_L5071_S2023: 3304 samples clipped in evaluation signal.
+[2024-08-21 11:17:34,631][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5071/fma_098556/ref_signal_for_eval: 3 samples clipped
+ 60%|█████████████████████████▏                | 12/20 [22:30&lt;13:22, 100.37s/it][2024-08-21 11:20:45,764][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T109978_L5013_S2023: 525 samples clipped in evaluation signal.
+[2024-08-21 11:20:49,984][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5013/fma_109978/ref_signal_for_eval: 1296 samples clipped
+ 65%|███████████████████████████▉               | 13/20 [24:02&lt;11:26, 98.04s/it][2024-08-21 11:22:11,499][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T113278_L5018_S2023: 26 samples clipped in evaluation signal.
+[2024-08-21 11:22:15,809][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5018/fma_113278/ref_signal_for_eval: 10 samples clipped
+ 75%|████████████████████████████████▎          | 15/20 [27:19&lt;08:15, 99.12s/it][2024-08-21 11:25:37,508][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T131979_L5007_S2023S500015: 24 samples clipped in evaluation signal.
+ 85%|███████████████████████████████████▋      | 17/20 [30:55&lt;05:14, 104.84s/it][2024-08-21 11:29:29,116][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T140583_L5042_S2023: 1 samples clipped in evaluation signal.
+[2024-08-21 11:29:33,645][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5042/mtg_01063183/ref_signal_for_eval: 10 samples clipped
+ 90%|█████████████████████████████████████▊    | 18/20 [32:52&lt;03:36, 108.46s/it][2024-08-21 11:31:22,196][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T142641_L5040_S2023: 74 samples clipped in evaluation signal.
+ 95%|███████████████████████████████████████▉  | 19/20 [34:39&lt;01:48, 108.11s/it][2024-08-21 11:33:23,821][recipes.cad1.task2.baseline.car_scene_acoustics][WARNING] - Scene T142947_L5009_S2023: 144 samples clipped in evaluation signal.
+[2024-08-21 11:33:28,298][recipes.cad1.task2.baseline.audio_manager][WARNING] - Writing evaluation_signals/L5009/fma_064515/ref_signal_for_eval: 4 samples clipped
+100%|██████████████████████████████████████████| 20/20 [36:47&lt;00:00, 110.37s/it]
 
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
 
 <span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>

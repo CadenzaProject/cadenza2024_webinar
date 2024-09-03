@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task2.html">Baseline CAD2 Task2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -446,14 +447,14 @@ document.write(`
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines&#39;
 </pre></div>
 </div>
 </div>
@@ -464,10 +465,10 @@ document.write(`
 <p>We first need to install the Clarity package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
-<span class="o">%</span><span class="k">cd</span> clarity
-<span class="o">%</span><span class="k">pip</span> install -e .
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">claritychallenge</span><span class="o">/</span><span class="n">clarity</span><span class="o">.</span><span class="n">git</span>
+<span class="o">%</span><span class="n">cd</span> <span class="n">clarity</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -491,10 +492,10 @@ document.write(`
 <p>We will be using music audio and listener metadata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>10SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS
-<span class="o">!</span>mv<span class="w"> </span>cadenza_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task1/baseline
-<span class="o">%</span><span class="k">cd</span> recipes/cad1/task1/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_data_demo.tar.xz
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">gdown</span> <span class="mi">10</span><span class="n">SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS</span>
+<span class="err">!</span><span class="n">mv</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
+<span class="o">%</span><span class="n">cd</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
+<span class="err">!</span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -513,12 +514,12 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task1/baseline
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task1/baseline
 </pre></div>
 </div>
 </div>
@@ -578,42 +579,27 @@ document.write(`
 <p>We are now ready to run the <code class="docutils literal notranslate"><span class="pre">enhance.py</span></code> python script. However, the standard configuration is designed to work with the full dataset. We can redirect the script to the correct folders by overriding the appropriate configuration parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">enhance</span><span class="o">.</span><span class="n">py</span> <span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=</span><span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">cadenza_data_demo</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/evaluate.py:155: UserWarning: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task1/baseline/evaluate.py:155: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
   @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/enhance.py:350: UserWarning: 
+/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/baselines/clarity/recipes/cad1/task1/baseline/enhance.py:350: UserWarning: 
 The version_base parameter is not specified.
 Please specify a compatability version level, or None.
 Will assume defaults for version 1.1
   @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
 See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
   ret = run_job(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-03 14:57:39,867][torchaudio.utils.download][INFO] - The local file (/home/gerardoroadabike/.cache/torch/hub/torchaudio/models/hdemucs_high_musdbhq_only.pt) exists. Skipping the download.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/enhance.py&quot;, line 388, in enhance
-    listener_dict = Listener.load_listener_dict(config.path.listeners_file)
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/clarity/utils/audiogram.py&quot;, line 260, in load_listener_dict
-    with open(filename, encoding=&quot;utf-8&quot;) as fp:
-FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1/metadata/listeners.valid.json&#39;
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2024-08-21 10:05:38,435][torchaudio.utils.download][INFO] - The local file (/home/gerardoroadabike/.cache/torch/hub/torchaudio/models/hdemucs_high_musdbhq_only.pt) exists. Skipping the download.
+[2024-08-21 10:05:40,018][__main__][INFO] - [001/002] Processing Actions - One Minute Smile for L5076...
+[2024-08-21 10:10:17,808][__main__][INFO] - [002/002] Processing Actions - One Minute Smile for L5040...
 </pre></div>
 </div>
 </div>
@@ -621,7 +607,7 @@ Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 <p>Now we have the enhanced output. Below, we can load and play the audios to listen the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
 
 <span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
@@ -645,32 +631,7 @@ Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 <p>Now that we have enhanced audios we can use the evaluate the outputs by using the HAAQI metric. The evaluation is run in the same manner as the enhancement script.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>evaluate.py<span class="w"> </span>path.root<span class="o">={</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/evaluate.py:155: UserWarning: 
-The version_base parameter is not specified.
-Please specify a compatability version level, or None.
-Will assume defaults for version 1.1
-  @hydra.main(config_path=&quot;&quot;, config_name=&quot;config&quot;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/clarity39/lib/python3.10/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
-See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
-  ret = run_job(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error executing job with overrides: [&#39;path.root=/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/evaluate.py&quot;, line 159, in run_calculate_aq
-    with open(config.path.music_file, encoding=&quot;utf-8&quot;) as fp:
-FileNotFoundError: [Errno 2] No such file or directory: &#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/previous_challenge/clarity/recipes/cad1/task1/baseline/cadenza_data_demo/cad1/task1/metadata/musdb18.valid.json&#39;
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">py</span> <span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=</span><span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">cadenza_data_demo</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span>
 </pre></div>
 </div>
 </div>

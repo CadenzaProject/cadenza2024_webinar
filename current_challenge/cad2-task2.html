@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'current_challenge/cad2-task2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Baseline CAD2 Task1" href="cad2-task1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -127,8 +129,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -189,8 +189,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">Running a Cadenza Recipe</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Baseline CAD2 Task2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -454,7 +455,7 @@ document.write(`
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> NBOOKROOT=/content
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">env</span> <span class="n">NBOOKROOT</span><span class="o">=/</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
@@ -470,10 +471,10 @@ document.write(`
 <p>We first need to install the Clarity package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
-<span class="o">%</span><span class="k">cd</span> clarity
-<span class="o">%</span><span class="k">pip</span> install -e .
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">claritychallenge</span><span class="o">/</span><span class="n">clarity</span><span class="o">.</span><span class="n">git</span>
+<span class="o">%</span><span class="n">cd</span> <span class="n">clarity</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -497,11 +498,11 @@ document.write(`
 <p>We will be using music audio and listener metadata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
 
-<span class="o">!</span>gdown<span class="w"> </span>1OWn0w39t_aeOOh514wRUgTw5uSwsoB17
-<span class="o">!</span>mv<span class="w"> </span>cadenza_data_demo.tar.xz<span class="w"> </span>recipes/cad1/task2/baseline
-<span class="o">!</span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_task2_data_demo.tar.xz
+<span class="err">!</span><span class="n">gdown</span> <span class="mi">1</span><span class="n">OWn0w39t_aeOOh514wRUgTw5uSwsoB17</span>
+<span class="err">!</span><span class="n">mv</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span>
+<span class="err">!</span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">cadenza_task2_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
@@ -520,13 +521,12 @@ document.write(`
 <p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> {os.environ[&#39;NBOOKROOT&#39;]}/clarity/recipes/cad1/task2/baseline
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span><span class="o">/</span><span class="n">baseline</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/clarity/recipes/cad1/task2/baseline&#39;
-/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/current_challenge/clarity
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/clarity/recipes/cad1/task2/baseline
 </pre></div>
 </div>
 </div>
@@ -538,12 +538,55 @@ document.write(`
 <p>We can inspect the contents of the config file using <code>!cat</code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>config.yaml
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">cat</span> <span class="n">config</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat: config.yaml: No such file or directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>path:
+  root: ../../cadenza_task2_data_demo/cad1/task2
+  audio_dir: ${path.root}/audio
+  metadata_dir: ${path.root}/metadata
+  music_dir: ${path.audio_dir}/music
+  hrtf_dir: ${path.audio_dir}/eBrird
+  listeners_train_file: ${path.metadata_dir}/listeners.train.json
+  listeners_valid_file: ${path.metadata_dir}/listeners.valid.json
+  scenes_file: ${path.metadata_dir}/scenes.json
+  scenes_listeners_file: ${path.metadata_dir}/scenes_listeners.json
+  hrtf_file: ${path.metadata_dir}/eBrird_BRIR.json
+  exp_folder: ./exp # folder to store enhanced signals and final results
+
+sample_rate: 44100
+
+nalr:
+  nfir: 220
+  fs: ${sample_rate}
+
+compressor:
+  threshold: 0.7
+  attenuation: 0.1
+  attack: 5
+  release: 20
+  rms_buffer_size: 0.064
+
+soft_clip: False
+
+enhance:
+  average_level: -14   # Average level according Spotify&#39;s levels
+  min_level: -19
+
+evaluate:
+  set_random_seed: True
+  small_test: False
+  save_intermediate_wavs: False
+  split: valid # train, valid
+  batch_size: 1   # Number of batches
+  batch: 0      # Batch number to evaluate
+
+# hydra config
+hydra:
+  run:
+    dir: ${path.exp_folder}
 </pre></div>
 </div>
 </div>
@@ -594,7 +637,7 @@ document.write(`
 <p>For local environments, this step may not be necessary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> PYTHONPATH=$PYTHONPATH:/content/clarity
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">env</span> <span class="n">PYTHONPATH</span><span class="o">=</span><span class="err">$</span><span class="n">PYTHONPATH</span><span class="p">:</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">clarity</span>
 </pre></div>
 </div>
 </div>
@@ -606,21 +649,24 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
-python enhance.py \
-path.root=../cad1/task2
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">shell</span>
+<span class="n">python</span> <span class="n">enhance</span><span class="o">.</span><span class="n">py</span> \
+<span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=../</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100% 20/20 [00:09&lt;00:00,  2.13it/s]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
 </pre></div>
 </div>
@@ -628,7 +674,7 @@ path.root=../cad1/task2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">audio_player_list</span><span class="p">(</span><span class="n">signals</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column_align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">audio_player_list</span><span class="p">(</span><span class="n">signals</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column_align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a list of HTML audio players tags for a given list of audio signals.</span>
 
 <span class="sd">    Notebook: B/B_PythonAudio.ipynb</span>
@@ -666,7 +712,7 @@ path.root=../cad1/task2
 <p>Now we have the enhanced output. Below, we can load and play the audio to listen to examples of the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>more_itertools
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">more_itertools</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +725,7 @@ Requirement already satisfied: more_itertools in /usr/local/lib/python3.9/dist-p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
@@ -710,16 +756,16 @@ Requirement already satisfied: more_itertools in /usr/local/lib/python3.9/dist-p
 <p>Now that we have enhanced audios we can use the evaluate recipe to generate HAAQI scores for the signals. The evaluation is run in the same manner as the enhancement script.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
-python evaluate.py \
-path.root=../cad1/task2
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">shell</span>
+<span class="n">python</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">py</span> \
+<span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="o">=../</span><span class="n">cad1</span><span class="o">/</span><span class="n">task2</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
@@ -788,6 +834,24 @@ path.root=../cad1/task2
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="cad2-task1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Baseline CAD2 Task1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
