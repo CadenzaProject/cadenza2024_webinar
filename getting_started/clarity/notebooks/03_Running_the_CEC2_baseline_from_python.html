@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Generating Baseline HASPI Scores &#8212; Cadenza Tutorials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/clarity/notebooks/03_Running_the_CEC2_baseline_from_python';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️</div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cadenza_logo.png" class="logo__image only-light" alt="Cadenza Tutorials - Home"/>
+    <script>document.write(`<img src="../../../_static/cadenza_logo.png" class="logo__image only-dark" alt="Cadenza Tutorials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Cadenza Tutorials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../installing_code.html">The Clarity/Cadenza codebase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_recipes.html">Running a Cadenza Recipe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 - Lyrics Intelligibility</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../current_challenge/cad2-task2.html">Baseline CAD2 Task2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/CadenzaProject/cadenza_tutorials/blob/main/docs/getting_started/clarity/notebooks/03_Running_the_CEC2_baseline_from_python.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fgetting_started/clarity/notebooks/03_Running_the_CEC2_baseline_from_python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/getting_started/clarity/notebooks/03_Running_the_CEC2_baseline_from_python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generating Baseline HASPI Scores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-demo-data">Install demo data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-baseline">Running the baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-the-baseline-nalr-and-compressor-components">Importing the baseline NALR and Compressor components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-nalr-and-compressor-components">Configuring the NALR and Compressor components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-scene-and-a-listener">Selecting a scene and a listener</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-signals-to-process">Loading the signals to process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-nalr-and-compressor-components">Applying the NALR and Compressor components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-outputs-using-haspi">Evaluating outputs using HASPI</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generating-baseline-haspi-scores">
+<h1>Generating Baseline HASPI Scores<a class="headerlink" href="#generating-baseline-haspi-scores" title="Link to this heading">#</a></h1>
+<p>The Clarity Enhancement Challenge 2 (CEC2) comes with a simple baseline system against which you can compare your own system’s performance.</p>
+<p>The baseline system has two stages:</p>
+<ul class="simple">
+<li><p><strong>NALR amplification</strong>: Hearing aid amplification using a listener’s audiogram and the NALR prescription.</p></li>
+<li><p><strong>A compressor</strong>: An automatic gain control (AGC) and compression stage that will output to 16 bit audio without clipping.</p></li>
+</ul>
+<p>Note, this is a very simple baseline designed to act as a starting point, e.g., there is no explicit noise-cancellation front end.</p>
+<p>Once signals have been processed by the baseline system they can be evaluated using the standard HASPI metric.</p>
+<p>Recipes (i.e. Python scripts) are provided to allow you to easily process and evaluate the complete development set. These receipes have commandline interfaces and can be found at,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cec2</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">enhance</span><span class="o">.</span><span class="n">py</span>
+<span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cec2</span><span class="o">/</span><span class="n">baseline</span><span class="o">/</span><span class="n">evaluate</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This tutorial will walk through the steps being performed in these recipes. We will be using a demo data subset of the full Clarity data, and loading and calling the modules that are invoked in the recipe scripts.</p>
+<section id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
+<p>We first need to install the Clarity package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--quiet<span class="w"> </span>https://github.com/claritychallenge/clarity.git
+<span class="o">%</span><span class="k">cd</span> clarity
+<span class="o">%</span><span class="k">pip</span> install -e .
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="o">%</span><span class="k">cd</span> ..
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="install-demo-data">
+<h2>Install demo data<a class="headerlink" href="#install-demo-data" title="Link to this heading">#</a></h2>
+<p>We will be using scene audio and associated metadata. This can be downloaded using the Clarity package’s <code class="docutils literal notranslate"><span class="pre">demo_data</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clarity.data</span> <span class="kn">import</span> <span class="n">demo_data</span>
+
+<span class="n">demo_data</span><span class="o">.</span><span class="n">get_metadata_demo</span><span class="p">()</span>
+<span class="n">demo_data</span><span class="o">.</span><span class="n">get_scenes_demo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, the demo data will have been downloaded into a directory called <code class="docutils literal notranslate"><span class="pre">clarity_data</span></code>.</p>
+</section>
+<section id="running-the-baseline">
+<h2>Running the baseline<a class="headerlink" href="#running-the-baseline" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="importing-the-baseline-nalr-and-compressor-components">
+<h3>Importing the baseline NALR and Compressor components<a class="headerlink" href="#importing-the-baseline-nalr-and-compressor-components" title="Link to this heading">#</a></h3>
+<p>The baseline enhancer is based on <a href='https://pubmed.ncbi.nlm.nih.gov/3743918/'>NAL-R prescription fitting</a>. Since output signals are required to be in 16-bit integer format, a slow acting automatic gain control is implemented to reduce clipping of the signal introduced by the NAL-R fitting for audiograms which represent more severe hearing loss. The AGC is followed by a soft-clip function.</p>
+<p>The NAL-R and AGC (compressor) classes can be accessed by importing them from the <code>clarity.enhancer</code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clarity.enhancer.compressor</span> <span class="kn">import</span> <span class="n">Compressor</span>
+<span class="kn">from</span> <span class="nn">clarity.enhancer.nalr</span> <span class="kn">import</span> <span class="n">NALR</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="configuring-the-nalr-and-compressor-components">
+<h3>Configuring the NALR and Compressor components<a class="headerlink" href="#configuring-the-nalr-and-compressor-components" title="Link to this heading">#</a></h3>
+<p>To allow for scalable and flexible running on both local and HPC platforms, many Clarity challenge CEC2 scripts and tools depend on <a href='https://hydra.cc/'>hydra</a> and <a href='https://github.com/facebookincubator/submitit'>submitit</a> for the configuration of Python code, for the setting of environment variables such as dataset directories, and for enabling parallisation of Python on both HPC and local machines. (A full description of how hydra and submitit is used in the Clarity challenges is out of the scope of this tutorial).</p>
+<p>In this notebook, we will be importing the baseline configuration file directly using <code>omegaconf</code>. The module can read a configuration file in YAML format and return a DictConfig object storing the configuration data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">omegaconf</span> <span class="kn">import</span> <span class="n">DictConfig</span><span class="p">,</span> <span class="n">OmegaConf</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">OmegaConf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;clarity/recipes/cec2/baseline/config.yaml&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">DictConfig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will need to override some of the standard paths provided in the baseline <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> to enable us to run the baseline on the demo data in this notebook environment.</p>
+<p>We need to supply:</p>
+<ul class="simple">
+<li><p>The root directory of the project data and metadata</p></li>
+<li><p>The directory of the metadata</p></li>
+<li><p>The directory of the audio data</p></li>
+</ul>
+<p>The default configuration can be overridden by changing the values in the <code class="docutils literal notranslate"><span class="pre">cfg</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;clarity_data/demo&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;metadata_dir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="si">{path.root}</span><span class="s2">/metadata&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;scenes_folder&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="si">{path.root}</span><span class="s2">/scenes&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Side note: the Clarity tools come with higher level <code class="docutils literal notranslate"><span class="pre">recipe</span></code> scripts that are designed to be used from the command line. When working with these, default configurations can be overriden by passing command line arguments.)</p>
+<p>With the configuration modified, we can now instantiate our <code>NALR</code> and <code>Compressor</code> objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enhancer</span> <span class="o">=</span> <span class="n">NALR</span><span class="p">(</span><span class="o">**</span><span class="n">cfg</span><span class="o">.</span><span class="n">nalr</span><span class="p">)</span>
+<span class="n">compressor</span> <span class="o">=</span> <span class="n">Compressor</span><span class="p">(</span><span class="o">**</span><span class="n">cfg</span><span class="o">.</span><span class="n">compressor</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-a-scene-and-a-listener">
+<h3>Selecting a scene and a listener<a class="headerlink" href="#selecting-a-scene-and-a-listener" title="Link to this heading">#</a></h3>
+<p>NAL-R fitting involves creating a complementary filterbank that is tuned to the audiogram of a specific listener.</p>
+<p>For each scene in the Clarity data set, there are three associated listeners that have been randomly selected, i.e., you are told which listeners to process each scene for. Using the right listeners is particularly important when processing the development (and evaluation) data, i.e., to ensure that your results are comparable with those of others.</p>
+<p>The listener audiogram data and the scene-listener associations are defined in the Clarity metadata.</p>
+<p>We will first load the scene, targets, listeners and scene_listeners data from the JSON files in which they are stored:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;clarity_data/demo/metadata/scenes.demo.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">scene_metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;clarity_data/demo/metadata/listeners.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">listeners_metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;clarity_data/demo/metadata/scenes_listeners.dev.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">scene_listeners_metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will select an individual scene from <code class="docutils literal notranslate"><span class="pre">scenes_metadata</span></code>, find its associated listener’s and then find the listener’s audiogram data.</p>
+<p>So we first choose a scene the the <code class="docutils literal notranslate"><span class="pre">scene_metadata</span></code> list using a <code class="docutils literal notranslate"><span class="pre">scene_index</span></code>, i.e.,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene_index</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">scene_metadata</span><span class="p">[</span><span class="n">scene_index</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scene</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We find the scene’s listeners by looking them up in the <code class="docutils literal notranslate"><span class="pre">scene_listeners_metadata</span></code> dict using the scene’s <code class="docutils literal notranslate"><span class="pre">scene_id</span></code> as the key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene_id</span> <span class="o">=</span> <span class="n">scene</span><span class="p">[</span><span class="s2">&quot;scene&quot;</span><span class="p">]</span>
+
+<span class="n">scene_listeners</span> <span class="o">=</span> <span class="n">scene_listeners_metadata</span><span class="p">[</span><span class="n">scene_id</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scene_listeners</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This provides us with the list of <code class="docutils literal notranslate"><span class="pre">listener_id</span></code>s for this scene.</p>
+<p>We will select one <code class="docutils literal notranslate"><span class="pre">listener_id</span></code> from this list and use it as the key to select the required listener metadata.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listener_choice</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">listener_id</span> <span class="o">=</span> <span class="n">scene_listeners</span><span class="p">[</span><span class="n">listener_choice</span><span class="p">]</span>
+<span class="n">listener</span> <span class="o">=</span> <span class="n">listeners_metadata</span><span class="p">[</span><span class="n">listener_id</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each listener metadata entry is a dict containing:</p>
+<ul class="simple">
+<li><p>Listener ID</p></li>
+<li><p>Audiogram centre frequencies</p></li>
+<li><p>Left ear audiogram hearing levels (dBHL)</p></li>
+<li><p>Right ear audiogram hearing levels (dBHL)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-signals-to-process">
+<h3>Loading the signals to process<a class="headerlink" href="#loading-the-signals-to-process" title="Link to this heading">#</a></h3>
+<p>Next we will load in the scene audio for the scene that we want to process.</p>
+<p>The path to the scenes audio data is stored in the <code class="docutils literal notranslate"><span class="pre">cfg.path.scenes_folder</span></code> variable and the audio files are named with the scene_id as the prefix and using the format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">SCENE_ID</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">CHANNEL</span><span class="o">&gt;.</span><span class="n">wav</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> can be <code class="docutils literal notranslate"><span class="pre">mix</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code>, <code class="docutils literal notranslate"><span class="pre">interferer</span></code> or <code class="docutils literal notranslate"><span class="pre">interferer_anechoic</span></code>, and <code class="docutils literal notranslate"><span class="pre">CHANNEL</span></code> can be <code class="docutils literal notranslate"><span class="pre">CH1</span></code>, <code class="docutils literal notranslate"><span class="pre">CH2</span></code>, <code class="docutils literal notranslate"><span class="pre">CH3</span></code> or <code class="docutils literal notranslate"><span class="pre">CH0</span></code>.</p>
+<p>The baseline system just uses <code class="docutils literal notranslate"><span class="pre">CH1</span></code> (the front microphone of the hearing aid).</p>
+<p>Finally, signals are stored as 16-bit integer audio and must be converted to floating point (between -1.0 and 1.0) before use, i.e. by dividing by 2**15.</p>
+<p>So, using the <code class="docutils literal notranslate"><span class="pre">wavfile</span></code> module from <code class="docutils literal notranslate"><span class="pre">scipy.io</span></code> to read the file, we have,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+
+<span class="n">fs</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">scenes_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scene_id</span><span class="si">}</span><span class="s2">_mix_CH1.wav&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">/</span> <span class="mf">32768.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot the signal to check it looks OK,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-the-nalr-and-compressor-components">
+<h3>Applying the NALR and Compressor components<a class="headerlink" href="#applying-the-nalr-and-compressor-components" title="Link to this heading">#</a></h3>
+<p>We will now build the NALR filterbank according to the audiograms of the listener we have selected and apply the filter to the scene signal. This is done separately for the left and right ear (i.e., for each channel of the stereo scene signal).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">nalr_fir</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_l&quot;</span><span class="p">],</span> <span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_cfs&quot;</span><span class="p">])</span>
+<span class="n">out_l</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nalr_fir</span><span class="p">,</span> <span class="n">signal</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">nalr_fir</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_r&quot;</span><span class="p">],</span> <span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_cfs&quot;</span><span class="p">])</span>
+<span class="n">out_r</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nalr_fir</span><span class="p">,</span> <span class="n">signal</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">out_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Following this, slow AGC is applied and a clip detection pass is performed. A tanh function is applied to remove high frequency distortion components from cliipped samples and the files are converted back to 16-bit integer format for saving.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_l</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">compressor</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">out_l</span><span class="p">)</span>
+<span class="n">out_r</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">compressor</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">out_r</span><span class="p">)</span>
+
+<span class="n">enhanced_audio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">out_l</span><span class="p">,</span> <span class="n">out_r</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">enhanced_audio</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, the signals are placed through a tanh function which provides a soft-clipping to handle any transient segments that have not been dealt with by the ACG.</p>
+<p>The final signals are then converted back into 16-bit format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_clipped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">enhanced_audio</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">n_clipped</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_clipped</span><span class="si">}</span><span class="s2"> samples clipped&quot;</span><span class="p">)</span>
+<span class="n">enhanced_audio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">enhanced_audio</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">enhanced_audio</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">enhanced_audio</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">enhanced_audio</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note, processed signals will be submitted as 16-bit wav-file format, i.e. by first converting back to 16-bit integer format and then saving to file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">signal_16</span> <span class="o">=</span> <span class="p">(</span><span class="mf">32768.0</span> <span class="o">*</span> <span class="n">enhanced_audio</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The standard filename for the processed audio is constructed as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scene</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">listener</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_HA-output.wav&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="evaluating-outputs-using-haspi">
+<h2>Evaluating outputs using HASPI<a class="headerlink" href="#evaluating-outputs-using-haspi" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Enhanced scores can now be evaluated using the HASPI speech intelligibility prediction metric and compared to the unenhanced audio.</p>
+<p>HASPI scores are calculated using a ‘better ear’ approach where left and right signals are acalculated and the higher score used as the output.</p>
+<p>The ‘better ear’ haspi function (<code class="docutils literal notranslate"><span class="pre">haspi_v2_be</span></code>) is imported from <code>clarity.evaluator.haspi</code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clarity.evaluator.haspi</span> <span class="kn">import</span> <span class="n">haspi_v2_be</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>HASPI is an intrusive metric and requires an uncorrupted reference signal. These are provided in the scenes audio data as files with the naming convention <code>SXXXX_target_CHX.wav</code>. CH1 is used as the reference transducer for this challenge. We load the file and convert to floating point as before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span><span class="p">,</span> <span class="n">reference</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">scenes_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scene_id</span><span class="si">}</span><span class="s2">_target_CH1.wav&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">reference</span> <span class="o">/</span> <span class="mf">32768.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We provide the function <code>haspi_v2_be</code> with the left and right references, the left and right signals, the sample rate and the audiogram information for the given listener.</p>
+<p>Below, we first compute the HASPI score for the unprocessed signal and then for the enhanced signal. We can compute the benefit of the processing by calculating the difference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sii_unprocessed</span> <span class="o">=</span> <span class="n">haspi_v2_be</span><span class="p">(</span>
+    <span class="n">xl</span><span class="o">=</span><span class="n">reference</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">xr</span><span class="o">=</span><span class="n">reference</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">yl</span><span class="o">=</span><span class="n">signal</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">yr</span><span class="o">=</span><span class="n">signal</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">fs_signal</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span>
+    <span class="n">audiogram_l</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_l&quot;</span><span class="p">],</span>
+    <span class="n">audiogram_r</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_r&quot;</span><span class="p">],</span>
+    <span class="n">audiogram_cfs</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_cfs&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">sii_enhanced</span> <span class="o">=</span> <span class="n">haspi_v2_be</span><span class="p">(</span>
+    <span class="n">xl</span><span class="o">=</span><span class="n">reference</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">xr</span><span class="o">=</span><span class="n">reference</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">yl</span><span class="o">=</span><span class="n">enhanced_audio</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">yr</span><span class="o">=</span><span class="n">enhanced_audio</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">fs_signal</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span>
+    <span class="n">audiogram_l</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_l&quot;</span><span class="p">],</span>
+    <span class="n">audiogram_r</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_levels_r&quot;</span><span class="p">],</span>
+    <span class="n">audiogram_cfs</span><span class="o">=</span><span class="n">listener</span><span class="p">[</span><span class="s2">&quot;audiogram_cfs&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original audio HASPI score is </span><span class="si">{</span><span class="n">sii_unprocessed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enhanced audio HASPI score is </span><span class="si">{</span><span class="n">sii_enhanced</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improvement from processing is </span><span class="si">{</span><span class="n">sii_enhanced</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sii_unprocessed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the scene and listener we have selected the original HASPI score should be about <code class="docutils literal notranslate"><span class="pre">0.081</span></code> and the score after enhancement should be about <code class="docutils literal notranslate"><span class="pre">0.231</span></code>. Note, HASPI uses internal masking noise and because we have not set the random seed, scores may vary a little from run to run - the variation should not be more than <code class="docutils literal notranslate"><span class="pre">+-0.0005</span></code> and often much less.</p>
+<p>Note also that the ‘enhanced’ score is still very low - this is not surprising given that the processing is only amplying amplification and compression. There is no noise cancellation, no multichannel processing, etc, etc. The purpose of the enhancement challenge is to add these components in order to try and improve on this baseline.</p>
+<p>Good luck!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./getting_started/clarity/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-demo-data">Install demo data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-baseline">Running the baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-the-baseline-nalr-and-compressor-components">Importing the baseline NALR and Compressor components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-nalr-and-compressor-components">Configuring the NALR and Compressor components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-scene-and-a-listener">Selecting a scene and a listener</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-signals-to-process">Loading the signals to process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-nalr-and-compressor-components">Applying the NALR and Compressor components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-outputs-using-haspi">Evaluating outputs using HASPI</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gerardo Roa Dabike
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
