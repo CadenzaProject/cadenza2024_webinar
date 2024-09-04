@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Running a Cadenza Recipe &#8212; Cadenza Tutorials</title>
+    <title>The config.yaml &#8212; Cadenza Tutorials</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/running_recipes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Baseline CAD2 Task1" href="../current_challenge/cad2-task1.html" />
+    <link rel="next" title="Baseline CAD2 Task1" href="../cad2/cad2-task1.html" />
     <link rel="prev" title="Interacting with Metadata" href="interact_metadata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,14 +184,14 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installing_code.html">The Clarity/Cadenza codebase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing_code.html">The Cadenza codebase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interact_metadata.html">Interacting with Metadata</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running a Cadenza Recipe</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Current Challenge</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 Challenge</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task1.html">Baseline CAD2 Task1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../current_challenge/cad2-task2.html">Baseline CAD2 Task2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task2.html">Baseline CAD2 Task2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -412,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Running a Cadenza Recipe</h1>
+    <h1>The config.yaml</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,10 +422,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-clarity-repository">Cloning the Clarity Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overriding-a-hydra-config-file">Overriding a hydra config file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a></li>
@@ -440,99 +436,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="running-a-cadenza-recipe">
-<h1>Running a Cadenza Recipe<a class="headerlink" href="#running-a-cadenza-recipe" title="Link to this heading">#</a></h1>
-<p>The tools and recipes included in the <a class="reference external" href="https://github.com/claritychallenge/clarity">Clarity/Cadenza</a> repository have been designed to be integrated into Python scripts that entrants may use to generate custom datasets or to expand the default datasets using new audio or varying data creation parameters. However, for convenience, the baseline Clarity/Cadenza tools can also be accessed via the command line interface (CLI) through shell scripts.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-config-yaml">
+<h1>The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code><a class="headerlink" href="#the-config-yaml" title="Link to this heading">#</a></h1>
+<p>The tools and recipes included in the <a class="reference external" href="https://github.com/claritychallenge/clarity">Clarity/Cadenza</a> repository have been designed to be integrated into Python scripts that entrants may use or adapt according to their needs. However, for convenience, the baseline Cadenza tools can also be accessed via the command line interface (CLI) through shell scripts.</p>
 <p>The Python and shell scripts included in the repository make use of <a class="reference external" href="https://hydra.cc/">hydra</a> and <a class="reference external" href="https://hydra.cc/docs/plugins/submitit_launcher/">Submitit</a>, two technologies which streamline the configuration and parallel operation of python code on both local and high-performance computing (HPC) environments.</p>
 <p>The use of Hydra for configuration allows the existing shell scripts to be easily redirected to include new audio data and modify the various parameters of the recipe.</p>
-<hr class="docutils" />
-<section id="setting-the-location-of-the-project">
-<h2>Setting the Location of the Project<a class="headerlink" href="#setting-the-location-of-the-project" title="Link to this heading">#</a></h2>
-<p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/getting_started&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="cloning-the-clarity-repository">
-<h2>Cloning the Clarity Repository<a class="headerlink" href="#cloning-the-clarity-repository" title="Link to this heading">#</a></h2>
-<p>We first need to install the Clarity package.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">claritychallenge</span><span class="o">/</span><span class="n">clarity</span><span class="o">.</span><span class="n">git</span>
-<span class="o">%</span><span class="n">cd</span> <span class="n">clarity</span>
-<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NBOOKROOT&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">/clarity&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
-
-<span class="n">clear_output</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repository installed&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repository installed
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="get-the-demo-data">
-<h2>Get the demo data<a class="headerlink" href="#get-the-demo-data" title="Link to this heading">#</a></h2>
-<p>We will be using music audio and listener metadata from CAD1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">gdown</span> <span class="mi">10</span><span class="n">SfuZR7yVlVO6RwNUc3kPeJHGiwpN3VS</span>
-<span class="err">!</span><span class="n">mv</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span> <span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
-<span class="err">!</span><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">cadenza_data_demo</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
-
-<span class="n">clear_output</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data installed&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data installed
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="changing-working-directory">
-<h2>Changing working Directory<a class="headerlink" href="#changing-working-directory" title="Link to this heading">#</a></h2>
-<p>Next, we change working directory to the location of the shell scripts we wish to run.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="p">]}</span><span class="o">/</span><span class="n">clarity</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">cad1</span><span class="o">/</span><span class="n">task1</span><span class="o">/</span><span class="n">baseline</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials/getting_started/clarity/recipes/cad1/task1/baseline
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="inspecting-existing-configuration">
 <h2>Inspecting Existing Configuration<a class="headerlink" href="#inspecting-existing-configuration" title="Link to this heading">#</a></h2>
-<p>All of the included shell scripts take configurable variables from the yaml files in the same directory as the shell script. In Cadenza, these files are typically named as <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>. However, other names may be used if more than one shell script is in a directory.</p>
-<p>Let’s inspect the contents of the config file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">path</span><span class="p">:</span>
+<p>All baselines take configurable variables from yaml files in the same directory as the shell script. In Cadenza, these files are typically named as <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>. However, other names may be used if more than one config file is needed.</p>
+<p>Let’s inspect the contents of a typical config file. The parameters may change depending on the challenge. However, all config files will have a <code class="docutils literal notranslate"><span class="pre">path</span></code> section, information about the <code class="docutils literal notranslate"><span class="pre">sample</span> <span class="pre">rates</span></code>, amplification parameters, evaluation parameters, hydra dependant parameters and others depending on te challenge.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Path Section</span>
+<span class="nt">path</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../../cadenza_data_demo/cad1/task1</span>
 <span class="w">  </span><span class="nt">metadata_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/metadata</span>
 <span class="w">  </span><span class="nt">music_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.root}/audio/musdb18hq</span>
@@ -541,12 +455,13 @@ document.write(`
 <span class="w">  </span><span class="nt">music_segments_test_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${path.metadata_dir}/musdb18.segments.test.json</span>
 <span class="w">  </span><span class="nt">exp_folder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./exp_${separator.model}</span><span class="w"> </span><span class="c1"># folder to store enhanced signals and final results</span>
 
-<span class="nt">team_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T001</span>
 
+<span class="c1"># Sample rates:</span>
 <span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">44100</span><span class="w">       </span><span class="c1"># sample rate of the input mixture</span>
 <span class="nt">stem_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24000</span><span class="w">  </span><span class="c1"># sample rate output stems</span>
 <span class="nt">remix_sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32000</span><span class="w"> </span><span class="c1"># sample rate for output remixed signal</span>
 
+<span class="c1"># Amplification:</span>
 <span class="nt">nalr</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">nfir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">220</span>
 <span class="w">  </span><span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${sample_rate}</span>
@@ -559,17 +474,22 @@ document.write(`
 <span class="w">  </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">  </span><span class="nt">rms_buffer_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.064</span>
 
-<span class="nt">soft_clip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
-
-<span class="nt">separator</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demucs</span><span class="w">   </span><span class="c1"># demucs or openunmix</span>
-<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
-
+<span class="c1"># Evaluation</span>
 <span class="nt">evaluate</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">set_random_seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 <span class="w">  </span><span class="nt">small_test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">  </span><span class="c1"># Number of batches</span>
 <span class="w">  </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">       </span><span class="c1"># Batch number to evaluate</span>
+
+
+<span class="c1"># Others</span>
+<span class="nt">team_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T001</span>
+
+<span class="nt">soft_clip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">separator</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demucs</span><span class="w">   </span><span class="c1"># demucs or openunmix</span>
+<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~</span>
 
 <span class="c1"># hydra config</span>
 <span class="nt">hydra</span><span class="p">:</span>
@@ -651,7 +571,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../current_challenge/cad2-task1.html"
+       href="../cad2/cad2-task1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -675,10 +595,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-location-of-the-project">Setting the Location of the Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-clarity-repository">Cloning the Clarity Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-demo-data">Get the demo data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-working-directory">Changing working Directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-existing-configuration">Inspecting Existing Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overriding-a-hydra-config-file">Overriding a hydra config file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-scripts">Shell Scripts</a></li>
