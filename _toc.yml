@@ -9,7 +9,11 @@ parts:
       - file: getting_started/installing_code
       - file: getting_started/interact_metadata
       - file: getting_started/running_recipes
-  - caption: CAD2 Challenge
+  - caption: "Metrics"
+    chapters:
+      - file: metrics/intro
+      - file: metrics/mbc
+  - caption: "CAD2 Challenge"
     chapters:
       - file: cad2/cad2-task1
       - file: cad2/cad2-task2
