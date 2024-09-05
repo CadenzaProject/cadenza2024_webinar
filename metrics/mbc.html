@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Baseline CAD2 Task1" href="../cad2/cad2-task1.html" />
-    <link rel="prev" title="The config.yaml" href="../getting_started/running_recipes.html" />
+    <link rel="prev" title="Metrics in Cadenza challenges" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,6 +190,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Metrics</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Metrics in Cadenza challenges</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Multiband Dynamic Range Compressor</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 Challenge</span></p>
@@ -455,7 +456,7 @@ The theorical aprt of this tutorial is based on the <a class="reference external
 <h3>Linkwitz–Riley filter<a class="headerlink" href="#linkwitzriley-filter" title="Link to this heading">#</a></h3>
 <p>Linkwitz–Riley crossover filter is a combination of lowpass and highpass filters. Each filter is a cascade of lowpass or highpass Butterworth filters. The sum of both filters yields 0 dB at the crossover fequency so that the crossover acts like an allpass filter (and therefore introducing no distortion in the audio signal).</p>
 <p>In clarity package, the Linkwitz–Riley crossover filters can be computed by using the <code class="docutils literal notranslate"><span class="pre">Crossover</span></code> class stored in the <code class="docutils literal notranslate"><span class="pre">clarity/enhancer/multiband_compressor/crossover.py</span></code> module.
-our implementation of the crossover filters is based on <span id="id1">[<a class="reference internal" href="../venv/lib/python3.10/site-packages/jupyter_book/book_template/markdown.html#id4" title="Joseph A D'Appolito. Active realization of multiway all-pass crossover systems. In Audio Engineering Society Convention 76. Audio Engineering Society, 1984.">DAppolito84</a>]</span>. We generalise the filter to compute any number of crossovers of order 4.</p>
+our implementation of the crossover filters is based on <span id="id1">[<a class="reference internal" href="../references.html#id3" title="Joseph A D'Appolito. Active realization of multiway all-pass crossover systems. In Audio Engineering Society Convention 76. Audio Engineering Society, 1984.">DAppolito84</a>]</span>. We generalise the filter to compute any number of crossovers of order 4.</p>
 <p>Let’s run a filter of a random signal at a crossover frequency of 8000 Hz.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -545,7 +546,7 @@ our implementation of the crossover filters is based on <span id="id1">[<a class
 <hr class="docutils" />
 <section id="digital-dynamic-range-compressor">
 <h2>Digital Dynamic Range Compressor<a class="headerlink" href="#digital-dynamic-range-compressor" title="Link to this heading">#</a></h2>
-<p>The clarity implementation is based on <span id="id2">[<a class="reference internal" href="../venv/lib/python3.10/site-packages/jupyter_book/book_template/markdown.html#id5" title="Dimitrios Giannoulis, Michael Massberg, and Joshua D Reiss. Digital dynamic range compressor design—a tutorial and analysis. Journal of the Audio Engineering Society, 60(6):399–408, 2012.">GMR12</a>]</span>.</p>
+<p>The clarity implementation is based on <span id="id2">[<a class="reference internal" href="../references.html#id4" title="Dimitrios Giannoulis, Michael Massberg, and Joshua D Reiss. Digital dynamic range compressor design—a tutorial and analysis. Journal of the Audio Engineering Society, 60(6):399–408, 2012.">GMR12</a>]</span>.</p>
 <p>The objective of the dynamic range compressor mapping the dynamic range of an audio signal to a smaller range, i.e., reducing the signal level of the higher peaks while leaving the quieter parts untreated.</p>
 <p>There are several parameters that affects how the compressor operates:</p>
 <ul class="simple">
@@ -736,12 +737,12 @@ our implementation of the crossover filters is based on <span id="id1">[<a class
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../getting_started/running_recipes.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></p>
+        <p class="prev-next-title">Metrics in Cadenza challenges</p>
       </div>
     </a>
     <a class="right-next"
