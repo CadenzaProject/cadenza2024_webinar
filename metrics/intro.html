@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -404,7 +404,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -420,6 +422,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-other-amplifications">Can I use other amplifications?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -431,7 +441,109 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="metrics-in-cadenza-challenges">
 <h1>Metrics in Cadenza challenges<a class="headerlink" href="#metrics-in-cadenza-challenges" title="Link to this heading">#</a></h1>
-<p>In Cadenza, we are focused in how to improve music quality for people with hearing loss. The only existing metric for music quality that considers hearing loss is the Hearing Aid Audio Quality Index (HAAQI) <span id="id1">[<a class="reference internal" href="../references.html#id5" title="James M Kates and Kathryn H Arehart. The hearing-aid audio quality index (haaqi). IEEE/ACM transactions on audio, speech, and language processing, 24(2):354–365, 2015.">KA15</a>]</span></p>
+<p>In Cadenza, we are focused in how to improve music quality for people with hearing loss. The only existing metric for music quality that considers hearing loss is the Hearing Aid Audio Quality Index (HAAQI) <span id="id1">[<a class="reference internal" href="../references.html#id5" title="James M Kates and Kathryn H Arehart. The hearing-aid audio quality index (haaqi). IEEE/ACM transactions on audio, speech, and language processing, 24(2):354–365, 2015.">KA15</a>]</span>.</p>
+<p>Please refer to the <a class="reference external" href="https://cadenzachallenge.org/docs/learning_resources/Hearing_aid_processing/edu_HAP_HA_processed_speech#haaqi-hearing-aid-audio-quality-index">Cadenza Learning Resources</a> to lear more about how HAAQI operates.</p>
+<p>In summary, HAAQI is an intrusive metric that requires the processed and reference signals. In HAAQI, the reference signal is amplified by using NAL-R prescripted gain formula <span id="id2">[<a class="reference internal" href="../references.html#id6" title="Denis Byrne and Harvey Dillon. The national acoustic laboratories'(nal) new procedure for selecting the gain and frequency response of a hearing aid. Ear and hearing, 7(4):257–265, 1986.">BD86</a>]</span>. HAAQI performs a seies of correlation between the reference and processed signals, therefore, it is expected that the processed signal has the same amplification. If the amplifications are not the same, the HAAQI score will be affected. Let’s see this in an example.</p>
+<p>The HAAQI function is located in <code class="docutils literal notranslate"><span class="pre">clarity/evaluator/haaqi/haaqi.py</span></code>.</p>
+<p>The parameters are:</p>
+<ul class="simple">
+<li><p>processed_signal: the processed signal</p></li>
+<li><p>reference_signal: the reference signal</p></li>
+<li><p>processed_sample_rate: the sampling rate of the processed signal</p></li>
+<li><p>reference_sample_rate: the sampling rate of the reference signal</p></li>
+<li><p>audiogram: an audiogram object containing the centre frequencies and hearing loss levels in dB.</p></li>
+<li><p>ecualisation: a parameter that indicates if the reference signal already has the amplification applied or not.</p></li>
+<li><p>level1: level of the reference signal in dB SPL that corresponds to a signal RMS = 1.</p></li>
+</ul>
+<p>In the next example, we will create a random signal and compute 2 scores:</p>
+<ol class="arabic simple">
+<li><p>The processed signal = reference signal with both having NAL-R applied</p></li>
+<li><p>The processed signal = reference signal with with only the reference having NAL-R applied</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">clarity.enhancer.nalr</span> <span class="kn">import</span> <span class="n">NALR</span>
+<span class="kn">from</span> <span class="nn">clarity.utils.audiogram</span> <span class="kn">import</span> <span class="n">Audiogram</span>
+<span class="kn">from</span> <span class="nn">clarity.evaluator.haaqi</span> <span class="kn">import</span> <span class="n">compute_haaqi</span>
+
+<span class="n">audiogram</span> <span class="o">=</span> <span class="n">Audiogram</span><span class="p">(</span>
+    <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
+    <span class="n">frequencies</span><span class="o">=</span><span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">sample_rate</span> <span class="o">=</span> <span class="mi">16000</span>
+
+<span class="n">enhancer</span> <span class="o">=</span> <span class="n">NALR</span><span class="p">(</span>
+  <span class="n">nfir</span><span class="o">=</span><span class="mi">220</span><span class="p">,</span>
+  <span class="n">sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">nalr_fir</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">audiogram</span><span class="p">)</span>
+
+<span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1. Reference and processed with amplification</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the NAL-R amplification to each signal</span>
+
+<span class="n">processed</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nalr_fir</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nalr_fir</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+
+<span class="c1"># Compute HAAQI</span>
+<span class="n">compute_haaqi</span><span class="p">(</span>
+    <span class="n">processed_signal</span><span class="o">=</span><span class="n">processed</span><span class="p">,</span>
+    <span class="n">reference_signal</span><span class="o">=</span><span class="n">reference</span><span class="p">,</span>
+    <span class="n">processed_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+    <span class="n">reference_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+    <span class="n">audiogram</span><span class="o">=</span><span class="n">audiogram</span><span class="p">,</span>
+    <span class="n">equalisation</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># reference already have amplification</span>
+    <span class="n">level1</span><span class="o">=</span><span class="mi">65</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9989907775620487
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. Processed signal doesn’t have amplification</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">processed</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">enhancer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nalr_fir</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+
+<span class="c1"># Compute HAAQI</span>
+<span class="n">compute_haaqi</span><span class="p">(</span>
+    <span class="n">processed_signal</span><span class="o">=</span><span class="n">processed</span><span class="p">,</span>
+    <span class="n">reference_signal</span><span class="o">=</span><span class="n">reference</span><span class="p">,</span>
+    <span class="n">processed_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+    <span class="n">reference_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+    <span class="n">audiogram</span><span class="o">=</span><span class="n">audiogram</span><span class="p">,</span>
+    <span class="n">equalisation</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># reference already have amplification</span>
+    <span class="n">level1</span><span class="o">=</span><span class="mi">65</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8512483872039563
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the example above, one can see that the best score is not exactly one but very close. Also, is the signals varies in the amplification, the score can reduce in 0.15 HAAQI in this ideal scenario.</p>
+<section id="can-i-use-other-amplifications">
+<h2>Can I use other amplifications?<a class="headerlink" href="#can-i-use-other-amplifications" title="Link to this heading">#</a></h2>
+<p>The short answer is Yes.</p>
+<p>There is no reason why your HAAQI score would be negativelly affected if you use a different amplification. Just mind that you need to apply such amplification to the reference in advance (like we did) and both signals must have the same aplification.</p>
+<p>In clarity we added the option to use a multiband</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -489,7 +601,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-other-amplifications">Can I use other amplifications?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
