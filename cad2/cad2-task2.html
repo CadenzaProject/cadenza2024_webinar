@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Metrics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../metrics/intro.html">Metrics in Cadenza challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics/haaqi.html">Hearing Aid Audio Quality Index (HAAQI)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metrics/mbc.html">Multiband Dynamic Range Compressor</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 Challenge</span></p>
@@ -635,7 +636,9 @@ drwxr-xr-x 2 gerardoroadabike gerardoroadabike 4096 Sep  3 16:52 metadata
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">separator.causality</span></code>: this is where we set the causlaity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">separator.force_redownload</span></code>: whether to force redownload the model or not.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">separator.add_residual</span></code>: percentage (value between 0 and 1) of the rest of instruments to add back to estimated instrument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">separator.causality</span></code>: this is where we set the causality.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">separator.separation</span></code>: these parameters are used for separate large signals using fade and overlap.</p></li>
 </ul>
 <hr class="docutils" />
@@ -663,12 +666,134 @@ drwxr-xr-x 2 gerardoroadabike gerardoroadabike 4096 Sep  3 16:52 metadata
 <p>The process goes as:</p>
 <ol class="arabic simple">
 <li><p>Loading the different metadata files into dictionaries.</p></li>
-<li><p>Load the causal or non-causal separation model using the method <code class="docutils literal notranslate"><span class="pre">load_separation_model()</span></code>.</p></li>
+<li><p>Load the causal or non-causal separation models into a dictionary using the method <code class="docutils literal notranslate"><span class="pre">load_separation_model()</span></code>.</p></li>
 <li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">MultibandCompressor</span></code>.</p></li>
 <li><p>Load the scenes and listeners per scenes</p></li>
-<li><p>Process one scene at a time</p></li>
 </ol>
-<p>In shell, we can call the enhancer as:</p>
+<hr class="docutils" />
+<p>Then, the script processes one scene-listener pair at a time.</p>
+<hr class="docutils" />
+<p>The process of a scene goes as:</p>
+<ol class="arabic simple">
+<li><p>Get the compressor parameters for the listener</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the listener&#39;s compressor params</span>
+<span class="n">mbc_params_listener</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;left&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+
+<span class="k">for</span> <span class="n">ear</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]:</span>
+    <span class="n">mbc_params_listener</span><span class="p">[</span><span class="n">ear</span><span class="p">][</span><span class="s2">&quot;release&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">enhancer</span><span class="o">.</span><span class="n">release</span>
+    <span class="n">mbc_params_listener</span><span class="p">[</span><span class="n">ear</span><span class="p">][</span><span class="s2">&quot;attack&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">enhancer</span><span class="o">.</span><span class="n">attack</span>
+    <span class="n">mbc_params_listener</span><span class="p">[</span><span class="n">ear</span><span class="p">][</span><span class="s2">&quot;threshold&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">enhancer</span><span class="o">.</span><span class="n">threshold</span>
+<span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">][</span><span class="s2">&quot;ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enhancer_params</span><span class="p">[</span><span class="n">listener_id</span><span class="p">][</span><span class="s2">&quot;cr_l&quot;</span><span class="p">]</span>
+<span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">][</span><span class="s2">&quot;ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enhancer_params</span><span class="p">[</span><span class="n">listener_id</span><span class="p">][</span><span class="s2">&quot;cr_r&quot;</span><span class="p">]</span>
+<span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">][</span><span class="s2">&quot;makeup_gain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enhancer_params</span><span class="p">[</span><span class="n">listener_id</span><span class="p">][</span>
+    <span class="s2">&quot;gain_l&quot;</span>
+<span class="p">]</span>
+<span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">][</span><span class="s2">&quot;makeup_gain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enhancer_params</span><span class="p">[</span><span class="n">listener_id</span><span class="p">][</span>
+    <span class="s2">&quot;gain_r&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p>Get the instruments composing the mixture.</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">source_list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sa">f</span><span class="s2">&quot;source_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">songs</span><span class="p">[</span><span class="n">song_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Mixture&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Load the signal to process and select the requested segment</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mixture_signal</span><span class="p">,</span> <span class="n">mix_sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">music_dir</span><span class="p">)</span> <span class="o">/</span> <span class="n">songs</span><span class="p">[</span><span class="n">song_name</span><span class="p">][</span><span class="s2">&quot;mixture&quot;</span><span class="p">][</span><span class="s2">&quot;track&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="k">assert</span> <span class="n">mix_sample_rate</span> <span class="o">==</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">songs</span><span class="p">[</span><span class="n">song_name</span><span class="p">][</span><span class="s2">&quot;mixture&quot;</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">songs</span><span class="p">[</span><span class="n">song_name</span><span class="p">][</span><span class="s2">&quot;mixture&quot;</span><span class="p">][</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+<span class="n">mixture_signal</span> <span class="o">=</span> <span class="n">mixture_signal</span><span class="p">[</span>
+    <span class="nb">int</span><span class="p">(</span><span class="n">start</span> <span class="o">*</span> <span class="n">mix_sample_rate</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">end</span> <span class="o">*</span> <span class="n">mix_sample_rate</span><span class="p">),</span>
+    <span class="p">:,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p>Estimate the stems of the mixture.</p>
+<ul class="simple">
+<li><p>model: dictionary with the separation models.</p></li>
+<li><p>signal: the original mixture with channels first.</p></li>
+<li><p>signal_sample_rate: sample rate of the original mixture.</p></li>
+<li><p>device: cpu or cuda</p></li>
+<li><p>sources_list: dictionary with the instruments in the mixture.</p></li>
+<li><p>listener: listener to process</p></li>
+<li><p>add_residual: percentage of the <code class="docutils literal notranslate"><span class="pre">rest</span> <span class="pre">of</span> <span class="pre">instruments</span></code> to add back to the estimated instrument.</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">stems</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="n">decompose_signal</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">separation_models</span><span class="p">,</span>
+    <span class="n">signal</span><span class="o">=</span><span class="n">mixture_signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>  
+    <span class="n">signal_sample_rate</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+    <span class="n">sources_list</span><span class="o">=</span><span class="n">source_list</span><span class="p">,</span>
+    <span class="n">listener</span><span class="o">=</span><span class="n">listener</span><span class="p">,</span>
+    <span class="n">add_residual</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">separator</span><span class="o">.</span><span class="n">add_residual</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p>Apply the gains.
+The baseline cannot separate 2 lines of the same instruments, i.e., it cannot separate a <code class="docutils literal notranslate"><span class="pre">violin</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">violin</span> <span class="pre">2</span></code> in the same mixture. Therefore, when 2 lines of the same instruments are present in the same mixture, the gains for each line of those instrument becaomes the average between them.</p></li>
+</ol>
+<p>Example:</p>
+<blockquote>
+<div><p>original_gains = {‘violin 1’: 3, ‘violin 2’: 10, ‘viola’: 6}<br />
+violin_avg = (3 + 10) / 2 = 6.5<br />
+new_gains = {‘violin 1’: 6.5, ‘violin 2’: 6.5, ‘viola’: 6}</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply gains to sources</span>
+<span class="n">gain_scene</span> <span class="o">=</span> <span class="n">check_repeated_source</span><span class="p">(</span><span class="n">gains</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;gain&quot;</span><span class="p">]],</span> <span class="n">source_list</span><span class="p">)</span>
+<span class="n">stems</span> <span class="o">=</span> <span class="n">apply_gains</span><span class="p">(</span><span class="n">stems</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span><span class="p">,</span> <span class="n">gain_scene</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p>Remix back to stereo the estimated sources with the requested levels.</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downmix to stereo</span>
+<span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">remix_stems</span><span class="p">(</span><span class="n">stems</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li><p>Adjust the level of the new mixture to -40 dB and apply the compressor</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># adjust levels to get roughly -40 dB before compressor</span>
+<span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">adjust_level</span><span class="p">(</span><span class="n">enhanced_signal</span><span class="p">,</span> <span class="n">gains</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;gain&quot;</span><span class="p">]])</span>
+
+<span class="c1"># Apply compressor</span>
+<span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">process_remix_for_listener</span><span class="p">(</span>
+    <span class="n">signal</span><span class="o">=</span><span class="n">enhanced_signal</span><span class="p">,</span>
+    <span class="n">enhancer</span><span class="o">=</span><span class="n">enhancer</span><span class="p">,</span>
+    <span class="n">enhancer_params</span><span class="o">=</span><span class="n">mbc_params_listener</span><span class="p">,</span>
+    <span class="n">listener</span><span class="o">=</span><span class="n">listener</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="8">
+<li><p>Save the enhanced signal in FLAC. These are saved in the directory <code class="docutils literal notranslate"><span class="pre">enhanced_signals</span></code> within the experiment path <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code> defined in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>.</p></li>
+</ol>
+<p>We can call the <code class="docutils literal notranslate"><span class="pre">enhance.py</span></code> script now.
+When calling this script, mind that you are loading the correct files.</p>
+<p>In shell, we can call the enhancer using the demo data as:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>enhance.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>path.root<span class="o">={</span>root_data<span class="o">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="s1">&#39;path.listeners_file=${path.metadata_dir}/listeners.demo.json&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -685,112 +810,50 @@ drwxr-xr-x 2 gerardoroadabike gerardoroadabike 4096 Sep  3 16:52 metadata
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-03 16:52:09,821][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 900kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 48.8MB/s]
-[2024-09-03 16:52:11,323][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 673kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 46.4MB/s]
-[2024-09-03 16:52:12,639][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 979kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 67.7MB/s]
-[2024-09-03 16:52:13,759][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 904kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 42.7MB/s]
-[2024-09-03 16:52:15,246][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 871kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 55.4MB/s]
-[2024-09-03 16:52:16,566][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 951kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 43.0MB/s]
-[2024-09-03 16:52:18,022][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 976kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 28.3MB/s]
-[2024-09-03 16:52:19,719][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_NonCausal
-config.json: 100%|██████████████████████████████| 204/204 [00:00&lt;00:00, 891kB/s]
-model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 67.7MB/s]
-[2024-09-03 16:52:20,936][__main__][INFO] - [001/002] Processing S50027: song op1_1_002 for listener L5008
-[2024-09-03 16:53:46,106][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50027_L5008_remix.flac: 31 samples clipped
-[2024-09-03 16:53:46,136][__main__][INFO] - [002/002] Processing S50084: song sq7123582_2_006 for listener L5079
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-05 10:18:36,071][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Bassoon_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 1.74MB/s]
+model.safetensors: 100%|███████████████████| 26.4M/26.4M [00:00&lt;00:00, 30.9MB/s]
+[2024-09-05 10:18:38,013][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Cello_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 1.19MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 104MB/s]
+[2024-09-05 10:18:39,108][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Clarinet_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 2.07MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 106MB/s]
+[2024-09-05 10:18:40,283][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Flute_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 2.17MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 110MB/s]
+[2024-09-05 10:18:41,247][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Oboe_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 2.00MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 104MB/s]
+[2024-09-05 10:18:42,349][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Sax_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 2.09MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 108MB/s]
+[2024-09-05 10:18:43,440][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Viola_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 2.12MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 111MB/s]
+[2024-09-05 10:18:44,421][__main__][INFO] - Loading model cadenzachallenge/ConvTasNet_Violin_NonCausal
+config.json: 100%|█████████████████████████████| 204/204 [00:00&lt;00:00, 1.94MB/s]
+model.safetensors: 100%|████████████████████| 26.4M/26.4M [00:00&lt;00:00, 110MB/s]
+[2024-09-05 10:18:46,617][__main__][INFO] - [001/002] Processing S50027: song op1_1_002 for listener L5008
+[2024-09-05 10:20:31,040][clarity.utils.flac_encoder][WARNING] - Writing enhanced_signals/valid/S50027_L5008_remix.flac: 31 samples clipped
+[2024-09-05 10:20:31,071][__main__][INFO] - [002/002] Processing S50084: song sq7123582_2_006 for listener L5079
 /home/gerardoroadabike/anaconda3/envs/tutorials/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
   return _methods._mean(a, axis=axis, dtype=dtype,
 /home/gerardoroadabike/anaconda3/envs/tutorials/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
   ret = ret.dtype.type(ret / rcount)
-[2024-09-03 16:55:13,300][__main__][INFO] - Done!
+[2024-09-05 10:22:11,175][__main__][INFO] - Done!
 </pre></div>
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<p>In the prevoius cell, we processed 2 different audio signals, each for a specific target listener.
-The process of a scene goes as:</p>
-<ol class="arabic simple">
-<li><p>Load the original mixture and select the requested segment</p></li>
-</ol>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">input_mixture</span><span class="p">,</span> <span class="n">input_sample_rate</span> <span class="o">=</span> <span class="n">read_flac_signal</span><span class="p">(</span>
-    <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">music_dir</span><span class="p">)</span>
-    <span class="o">/</span> <span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;path&quot;</span><span class="p">]</span>
-    <span class="o">/</span> <span class="s2">&quot;mixture.flac&quot;</span>
-<span class="p">)</span>
-<span class="n">start_sample</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
-    <span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span>
-<span class="p">)</span>
-<span class="n">end_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">songs</span><span class="p">[</span><span class="n">scene</span><span class="p">[</span><span class="s2">&quot;segment_id&quot;</span><span class="p">]][</span><span class="s2">&quot;end_time&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">input_sample_rate</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<ol class="arabic simple" start="2">
-<li><p>Normalise to -40 dB LUFS. This is important for the compressor later.</p></li>
-</ol>
-<hr class="docutils" />
-<ol class="arabic simple" start="3">
-<li><p>Separate the vocals from the background</p></li>
-</ol>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">est_sources</span> <span class="o">=</span> <span class="n">separate_sources</span><span class="p">(</span>
-    <span class="n">separation_model</span><span class="p">,</span>
-    <span class="n">input_mixture</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">config</span><span class="o">.</span><span class="n">separator</span><span class="o">.</span><span class="n">separation</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">vocals</span><span class="p">,</span> <span class="n">accompaniment</span> <span class="o">=</span> <span class="n">est_sources</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<ol class="arabic simple" start="4">
-<li><p>Downmix to stereo using the alpha as input parameter</p></li>
-</ol>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">downmix_signal</span><span class="p">(</span><span class="n">vocals</span><span class="p">,</span> <span class="n">accompaniment</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<ol class="arabic simple" start="5">
-<li><p>Aply the hearing aid amplification using the multiband compressor and the listener audiograms</p></li>
-</ol>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">enhancer</span><span class="o">.</span><span class="n">set_compressors</span><span class="p">(</span><span class="o">**</span><span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">])</span>
-<span class="n">left_enhanced</span> <span class="o">=</span> <span class="n">enhancer</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">enhanced_signal</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
-
-<span class="n">enhancer</span><span class="o">.</span><span class="n">set_compressors</span><span class="p">(</span><span class="o">**</span><span class="n">mbc_params_listener</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">])</span>
-<span class="n">right_enhanced</span> <span class="o">=</span> <span class="n">enhancer</span><span class="p">(</span><span class="n">signal</span><span class="o">=</span><span class="n">enhanced_signal</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
-
-<span class="n">enhanced_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">left_enhanced</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">right_enhanced</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<ol class="arabic simple" start="6">
-<li><p>Save the enhanced signal in FLAC. These are saved in the directory <code class="docutils literal notranslate"><span class="pre">enhanced_signals</span></code> within the experiment path <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code> defined in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>.</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">{</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad2/task1/baseline/exp_causal/enhanced_signals
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span><span class="o">{</span>os.environ<span class="o">[</span><span class="s1">&#39;NBOOKROOT&#39;</span><span class="o">]}</span>/clarity/recipes/cad2/task2/baseline/exp/enhanced_signals/valid
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 1776
--rw-rw-r-- 1 gerardoroadabike gerardoroadabike 1024842 Sep  3 16:13 S50009_L5086_A0.4_remix.flac
--rw-rw-r-- 1 gerardoroadabike gerardoroadabike  790055 Sep  3 16:13 S50077_L5042_A0.8_remix.flac
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>S50027_L5008_remix.flac  S50084_L5079_remix.flac
 </pre></div>
 </div>
 </div>
@@ -838,7 +901,7 @@ The process of a scene goes as:</p>
 <hr class="docutils" />
 <section id="running-evaluate-py">
 <h3>Running <a class="reference external" href="http://evaluate.py">evaluate.py</a><a class="headerlink" href="#running-evaluate-py" title="Link to this heading">#</a></h3>
-<p>Now that we have enhanced audios we can use the evaluate recipe to generate HAAQI scores for the signals. The evaluation should run with the same parameters as the enhancement</p>
+<p>Now that we have enhanced audios we can use the <code class="docutils literal notranslate"><span class="pre">evaluate.py</span></code> script to generate HAAQI scores for the signals. The evaluation should run with the same parameters as the enhancement</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>python<span class="w"> </span>evaluate.py<span class="w"> </span>path.root<span class="o">={</span>root_data<span class="o">}</span><span class="w"> </span>path.listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/listeners.demo.json<span class="w"> </span>path.enhancer_params_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/compressor_params.demo.json<span class="w"> </span>path.scenes_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scenes.demo.json<span class="w"> </span>path.scene_listeners_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/scene_listeners.demo.json<span class="w"> </span>path.music_file<span class="o">={</span>root_data<span class="o">}</span>/metadata/music.demo.json
@@ -846,10 +909,10 @@ The process of a scene goes as:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-03 16:57:32,146][__main__][INFO] - Evaluating from enhanced_signals directory
-[2024-09-03 16:57:32,155][__main__][INFO] - [001/002] Evaluating S50027 for listener L5008
-[2024-09-03 16:58:06,874][__main__][INFO] - [002/002] Evaluating S50084 for listener L5079
-[2024-09-03 16:58:41,164][__main__][INFO] - Done!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2024-09-05 10:59:15,986][__main__][INFO] - Evaluating from enhanced_signals directory
+[2024-09-05 10:59:15,995][__main__][INFO] - [001/002] Evaluating S50027 for listener L5008
+[2024-09-05 10:59:53,569][__main__][INFO] - [002/002] Evaluating S50084 for listener L5079
+[2024-09-05 11:00:29,695][__main__][INFO] - Done!
 </pre></div>
 </div>
 </div>
@@ -912,8 +975,7 @@ The process of a scene goes as:</p>
 </table>
 </div></div></div>
 </div>
-<p>The HAAQI scores are compute for the left and right ear and then save the averaged.
-The intelligibility score as compute for the left and right ear and then saved the better ear.</p>
+<p>The HAAQI scores are compute for the left and right ear and then save the averaged.</p>
 </section>
 </section>
 </section>
