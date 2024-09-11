@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'metrics/haaqi';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multiband Dynamic Range Compressor" href="mbc.html" />
-    <link rel="prev" title="Metrics in Cadenza challenges" href="intro.html" />
+    <link rel="next" title="Word Correctness" href="correctness.html" />
+    <link rel="prev" title="Metrics" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,31 +174,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Cadenza Tutorials
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_code.html">The Cadenza codebase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/interact_metadata.html">Interacting with Metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Metrics</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PyClarity</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Metrics in Cadenza challenges</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hearing Aid Audio Quality Index (HAAQI)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mbc.html">Multiband Dynamic Range Compressor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="correctness.html">Word Correctness</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">Metrics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hearing Aid Audio Quality Index (HAAQI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correctness.html">Word Correctness</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 Challenge</span></p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../signal_processing/overview.html">Signal Processing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/mbc.html">Multiband Dynamic Range Compressor</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Challenges</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task1.html">Baseline CAD2 Task1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task2.html">Baseline CAD2 Task2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../interact_challenges/overview.html">Stating with a Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../interact_challenges/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interact_challenges/running_recipes.html">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cad2/cad2.html">Second Cadenza Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cad2/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cad2/cad2-task2.html">Baseline CAD2 Task2</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -542,7 +545,7 @@ document.write(`
 <h2>Can I use other amplifications?<a class="headerlink" href="#can-i-use-other-amplifications" title="Link to this heading">#</a></h2>
 <p>The short answer is Yes.</p>
 <p>There is no reason why your HAAQI score would be negativelly affected if you use a different amplification. Just mind that you need to apply such amplification to the reference in advance (like we did) and both signals must have the same aplification.</p>
-<p>In Cadenza we included a multiband dynamic band compressor (MBC)that can be used for the amplification instead of NAL-R. To learn more about our MBC, please read the next tutorial.</p>
+<p>In PyClarity, we included a multiband dynamic band compressor (MBC) that can be used for the amplification instead of NAL-R. To learn more about our MBC, please read the <a class="reference internal" href="../signal_processing/mbc.html"><span class="doc std std-doc">MBC documentation</span></a>.</p>
 </section>
 </section>
 
@@ -577,20 +580,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="overview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Metrics in Cadenza challenges</p>
+        <p class="prev-next-title">Metrics</p>
       </div>
     </a>
     <a class="right-next"
-       href="mbc.html"
+       href="correctness.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multiband Dynamic Range Compressor</p>
+        <p class="prev-next-title">Word Correctness</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -625,7 +628,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Gerardo Roa Dabike
+By Clarity/Cadenza Teams
 </p>
 
   </div>

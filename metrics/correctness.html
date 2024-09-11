@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'metrics/correctness';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Baseline CAD2 Task1" href="../cad2/cad2-task1.html" />
-    <link rel="prev" title="Multiband Dynamic Range Compressor" href="mbc.html" />
+    <link rel="next" title="Signal Processing" href="../signal_processing/overview.html" />
+    <link rel="prev" title="Hearing Aid Audio Quality Index (HAAQI)" href="haaqi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,31 +176,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Cadenza Tutorials
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_code.html">The Cadenza codebase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/interact_metadata.html">Interacting with Metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_recipes.html">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Metrics</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PyClarity</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Metrics in Cadenza challenges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="haaqi.html">Hearing Aid Audio Quality Index (HAAQI)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mbc.html">Multiband Dynamic Range Compressor</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Word Correctness</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">Metrics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="haaqi.html">Hearing Aid Audio Quality Index (HAAQI)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Word Correctness</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAD2 Challenge</span></p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../signal_processing/overview.html">Signal Processing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/mbc.html">Multiband Dynamic Range Compressor</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Challenges</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task1.html">Baseline CAD2 Task1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cad2/cad2-task2.html">Baseline CAD2 Task2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../interact_challenges/overview.html">Stating with a Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../interact_challenges/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interact_challenges/running_recipes.html">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cad2/cad2.html">Second Cadenza Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cad2/cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cad2/cad2-task2.html">Baseline CAD2 Task2</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -478,7 +481,7 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
 <span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;as long as you hold my hand&quot;</span>
 
 <span class="n">sr</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
-    <span class="s2">&quot;../audio/Aretha Franklin-As Long As You There.wav&quot;</span>
+    <span class="s2">&quot;../_static/audio/Aretha Franklin-As Long As You There.wav&quot;</span>
 <span class="p">)</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
 </pre></div>
@@ -498,7 +501,7 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">whisper</span>
 
 <span class="n">whisper_model</span> <span class="o">=</span> <span class="n">whisper</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;base.en&#39;</span><span class="p">)</span>
-<span class="n">hypothesis</span> <span class="o">=</span> <span class="n">whisper_model</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;../audio/Aretha Franklin-As Long As You There.wav&quot;</span><span class="p">,</span> <span class="n">fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">hypothesis</span> <span class="o">=</span> <span class="n">whisper_model</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;../_static/audio/Aretha Franklin-As Long As You There.wav&quot;</span><span class="p">,</span> <span class="n">fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
 <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -734,20 +737,20 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mbc.html"
+       href="haaqi.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Multiband Dynamic Range Compressor</p>
+        <p class="prev-next-title">Hearing Aid Audio Quality Index (HAAQI)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../cad2/cad2-task1.html"
+       href="../signal_processing/overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Baseline CAD2 Task1</p>
+        <p class="prev-next-title">Signal Processing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -785,7 +788,7 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
   <div class="footer-item">
     
 <p class="component-author">
-By Gerardo Roa Dabike
+By Clarity/Cadenza Teams
 </p>
 
   </div>
