@@ -450,6 +450,10 @@ document.write(`
 <h1>Hearing Aid Audio Quality Index (HAAQI)<a class="headerlink" href="#hearing-aid-audio-quality-index-haaqi" title="Link to this heading">#</a></h1>
 <p>In summary, HAAQI is an intrusive metric that requires the processed and reference signals. Both signal need to be amplified by the same prescripted gain formula. In CAD1 and ICASSP2024 challenges, this amplification was the NAL-R formula <span id="id1">[<a class="reference internal" href="../references.html#id6" title="Denis Byrne and Harvey Dillon. The national acoustic laboratories'(nal) new procedure for selecting the gain and frequency response of a hearing aid. Ear and hearing, 7(4):257–265, 1986.">BD86</a>]</span>. In CAD2, the amplification corresponds to a multiband dynamic range compressor (MBC).</p>
 <p>As HAAQI performs a series of correlation between the reference and processed signals, it is expected that both signals have the same amplification. If they don’t have the same amplifications the HAAQI score will be affected. Let’s see this in an example.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In Cadenza challenges, the amplification used for the reference signal is defined by the challenge and it is properly informed in the challenges description. The amplification used for the processed signal is defined by the participant. The baselines ause the same amplifications for both signals but participants are free to change them if they believe a different amplification will result in a better signal for listener panel.</p>
+</div>
 <p>The HAAQI function is located in <code class="docutils literal notranslate"><span class="pre">clarity/evaluator/haaqi/haaqi.py</span></code>.</p>
 <p>The parameters are:</p>
 <ul class="simple">
