@@ -6,7 +6,7 @@ In the different challenges of Cadenza, we evaluate the music in terms of their 
 
 The only existing metric for music quality that considers hearing loss is the Hearing Aid Audio Quality Index (HAAQI) {cite}`kates2015hearing`.
 
-Please refer to the [Cadenza Learning Resources](https://cadenzachallenge.org/docs/learning_resources/Hearing_aid_processing/edu_HAP_HA_processed_speech#haaqi-hearing-aid-audio-quality-index) to lear more about how HAAQI operates.
+Please refer to the [Cadenza Learning Resources](https://cadenzachallenge.org/docs/learning_resources/Hearing_aid_processing/edu_HAP_HA_processed_speech#haaqi-hearing-aid-audio-quality-index) to learn more about how HAAQI operates.
 
 ## Lyrics Intellibility
 
