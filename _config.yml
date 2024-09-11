@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Cadenza Tutorials
-author: Gerardo Roa Dabike
+author: Clarity/Cadenza Teams
 copyright: "2024"
-logo: figures/cadenza_logo.png
+logo: _static/figures/cadenza_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -29,7 +29,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  home_page_in_navbar: true
+  home_page_in_navbar: false
   use_issues_button: true
   use_repository_button: true
   announcement: "⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️"

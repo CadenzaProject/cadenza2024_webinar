@@ -7,14 +7,27 @@ parts:
   - caption: "Getting Starting"
     chapters:
       - file: getting_started/installing_code
-      - file: getting_started/interact_metadata
-      - file: getting_started/running_recipes
-  - caption: "Metrics"
+
+  - caption: "PyClarity"
     chapters:
-      - file: metrics/intro
-      - file: metrics/mbc
-  - caption: "CAD2 Challenge"
+      - file: metrics/overview
+        sections:
+        - file: metrics/haaqi
+        - file: metrics/correctness
+
+      - file: signal_processing/overview
+        sections:
+        - file: signal_processing/mbc
+
+  - caption: "Challenges"
     chapters:
+    - file: interact_challenges/overview
+      sections:
+      - file: interact_challenges/interact_metadata
+      - file: interact_challenges/running_recipes
+
+    - file: cad2/cad2
+      sections:
       - file: cad2/cad2-task1
       - file: cad2/cad2-task2
 #  - caption: Previous Challenges
