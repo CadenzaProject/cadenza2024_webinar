@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The First Cadenza Challenge (CAD1) - Task 1: Listening music via headphones &#8212; Cadenza Tutorials</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cad2/clarity/recipes/cad1/task1/baseline/README';</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️ This is a beta version. Please report any issues or request new tutorial by opening an issue on the GitHub repository. ⚠️</div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/cadenza_logo.png" class="logo__image only-light" alt="Cadenza Tutorials - Home"/>
+    <script>document.write(`<img src="../../../../../../_static/cadenza_logo.png" class="logo__image only-dark" alt="Cadenza Tutorials - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Starting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/installing_code.html">The Cadenza codebase</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PyClarity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../metrics/overview.html">Metrics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../metrics/haaqi.html">Hearing Aid Audio Quality Index (HAAQI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../metrics/correctness.html">Word Correctness</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../signal_processing/overview.html">Signal Processing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../signal_processing/mbc.html">Multiband Dynamic Range Compressor</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Challenges</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../interact_challenges/overview.html">Stating with a Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../interact_challenges/interact_metadata.html">Interacting with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../interact_challenges/running_recipes.html">The <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../cad2.html">Second Cadenza Challenge</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cad2-task1.html">Baseline CAD2 Task1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cad2-task2.html">Baseline CAD2 Task2</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/CadenzaProject/cadenza_tutorials/issues/new?title=Issue%20on%20page%20%2Fcad2/clarity/recipes/cad1/task1/baseline/README.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/cad2/clarity/recipes/cad1/task1/baseline/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The First Cadenza Challenge (CAD1) - Task 1: Listening music via headphones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure">1. Data structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-data">1.1 Necessary data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-optional-data">1.2 Additional optional data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-data">1.3 Demo data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baseline">2. Baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancement">2.1 Enhancement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">2.2 Evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4. References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-first-cadenza-challenge-cad1-task-1-listening-music-via-headphones">
+<h1>The First Cadenza Challenge (CAD1) - Task 1: Listening music via headphones<a class="headerlink" href="#the-first-cadenza-challenge-cad1-task-1-listening-music-via-headphones" title="Link to this heading">#</a></h1>
+<p>Cadenza challenge code for the First Cadenza Challenge (CAD1) Task1.</p>
+<p>For more information please visit the <a class="reference external" href="https://cadenzachallenge.org/docs/cadenza1/cc1_intro">challenge website</a>.</p>
+<section id="data-structure">
+<h2>1. Data structure<a class="headerlink" href="#data-structure" title="Link to this heading">#</a></h2>
+<p>The First Cadenza Challenge - task 1 is using the MUSDB18-HQ dataset.
+The data is split into train, validation and test following the same split from museval.
+I.e., 86 songs are for training, 16 for validation and 50 for evaluation.</p>
+<p>To download the data, please visit <a class="reference external" href="https://forms.gle/UQkuCxqQVxZtGggPA">here</a>. The data is split into <code class="docutils literal notranslate"><span class="pre">cadenza_cad1_task1_core_musdb18hq.tar.gz</span></code> (containing the MUSDB18-HQ dataset) and
+<code class="docutils literal notranslate"><span class="pre">cadenza_cad1_task1_core_metadata.tar.gz</span></code> (containing the list of songs and listeners’ characteristics per split).
+Alternatively, you can download the MUSDB18-HQ dataset from the official <a class="reference external" href="https://sigsep.github.io/datasets/musdb.html#musdb18-hq-uncompressed-wav">SigSep website</a>.
+If you opt for this alternative, be sure to download the uncompressed wav version. Note that you will need both packages to run the baseline system.</p>
+<p>If you need additional music data for training your model, please restrict to the use of <a class="reference external" href="https://medleydb.weebly.com/">MedleyDB</a> [<a class="reference internal" href="#4-references"><span class="xref myst">4</span></a>] [<a class="reference internal" href="#4-references"><span class="xref myst">5</span></a>],
+<a class="reference external" href="https://labsites.rochester.edu/air/resource.html">BACH10</a> [<a class="reference internal" href="#4-references"><span class="xref myst">6</span></a>] and <a class="reference external" href="https://github.com/mdeff/fma">FMA-small</a> [<a class="reference internal" href="#4-references"><span class="xref myst">7</span></a>].
+Theses are shared as <code class="docutils literal notranslate"><span class="pre">cadenza_cad1_task1_augmentation_medleydb.tar.gz</span></code>, <code class="docutils literal notranslate"><span class="pre">cadenza_cad1_task1_augmentation_bach10.tar.gz</span></code>
+and <code class="docutils literal notranslate"><span class="pre">cadenza_cad1_task1_augmentation_fma_small.tar.gz</span></code>.
+<strong>Keeping the augmentation data restricted to these datasets will ensure that the evaluation is fair for all participants</strong>.</p>
+<p>Unpack packages under the same root directory using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-xvzf<span class="w"> </span>&lt;PACKAGE_NAME&gt;
+</pre></div>
+</div>
+<section id="necessary-data">
+<h3>1.1 Necessary data<a class="headerlink" href="#necessary-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Music</strong> contains the MUSDB18-HQ music dataset for training, validation and evaluation.</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cadenza_data
+└───task1
+    └───audio
+        └───musdb18hq
+            ├───train
+            └───test
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Metadata</strong> contains the metadata for the systems.</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cadenza_data
+└───task1
+    └───metadata
+        └───musdb18hq
+            ├───listeners.train.json
+            ├───listeners.valid.json
+            ├───musdb18.train.json
+            ├───musdb18.valid.json
+            └───musdb18.test.json
+</pre></div>
+</div>
+</section>
+<section id="additional-optional-data">
+<h3>1.2 Additional optional data<a class="headerlink" href="#additional-optional-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>MedleyDB</strong> contains both MedleyDB versions 1 [<a class="reference internal" href="#4-references"><span class="xref myst">4</span></a>] and 2 [<a class="reference internal" href="#4-references"><span class="xref myst">5</span></a>] datasets.</p></li>
+</ul>
+<p>Tracks from the MedleyDB dataset are not included in the evaluation set.
+However, is your responsibility to exclude any song that may be already contained in the training set.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cadenza_data
+└───task1
+    └───audio
+        └───MedleyDB
+            ├───Audio
+            └───Metadata
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>BACH10</strong> contains the BACH10 dataset [<a class="reference internal" href="#4-references"><span class="xref myst">6</span></a>].</p></li>
+</ul>
+<p>Tracks from the BACH10 dataset are not included in MUSDB18-HQ and can all be used as training augmentation data.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cadenza_data
+└───task1
+    └───audio
+        └───fma_small
+            ├───000
+            ├───001
+            ├───...
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>FMA Small</strong> contains the FMA small subset of the FMA dataset [<a class="reference internal" href="#4-references"><span class="xref myst">7</span></a>].</p></li>
+</ul>
+<p>Tracks from the FMA small dataset are not included in the MUSDB18-HQ.
+This dataset does not provide independent stems but only the full mix.
+However, it can be used to train an unsupervised model to better initialise a supervised model.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cadenza_data
+└───task1
+    └───audio
+        └───fma_small
+            ├───000
+            ├───001
+            ├───...
+</pre></div>
+</div>
+</section>
+<section id="demo-data">
+<h3>1.3 Demo data<a class="headerlink" href="#demo-data" title="Link to this heading">#</a></h3>
+<p>To help you to start with the challenge, we provide a small subset of the data.
+The <code class="docutils literal notranslate"><span class="pre">demo_data</span></code> folder contains a single song and two listeners from the validation set.</p>
+<p>To use the demo data, simply download the package <code class="docutils literal notranslate"><span class="pre">cadenza_data_demo.tar.xz</span></code>
+from <a class="reference external" href="https://drive.google.com/drive/folders/1Yxo_R-yPByEUvX5O5lhsHk3tW1ek5qKW?usp=share_link">here</a>
+and unpack it under <code class="docutils literal notranslate"><span class="pre">recipes/cad1/task1/</span></code>, i.e., one level above the baseline directory.
+Note that the <code class="docutils literal notranslate"><span class="pre">root.path</span></code> variable in <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> is already set to the demo data by default.</p>
+<p>To unpack the demo data, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-xvf<span class="w"> </span>cadenza_data_demo.tar.xz
+</pre></div>
+</div>
+</section>
+</section>
+<section id="baseline">
+<h2>2. Baseline<a class="headerlink" href="#baseline" title="Link to this heading">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">baseline/</span></code> folder, we provide code for running the baseline enhancement system and performing the objective evaluation.
+Note that we use <a class="reference external" href="https://hydra.cc/docs/intro/">hydra</a> for config handling.</p>
+<section id="enhancement">
+<h3>2.1 Enhancement<a class="headerlink" href="#enhancement" title="Link to this heading">#</a></h3>
+<p>We offer two baseline systems:</p>
+<ol class="arabic simple">
+<li><p>Using the out-of-the-box time-domain <a class="reference external" href="https://github.com/facebookresearch/demucs">Hybrid Demucs</a> [<a class="reference internal" href="#4-references"><span class="xref myst">1</span></a>]
+source separation model distributed on <a class="reference external" href="https://pytorch.org/audio/main/tutorials/hybrid_demucs_tutorial.html">TorchAudio</a></p></li>
+<li><p>Using the out-of-the-box spectrogram-based <a class="reference external" href="https://github.com/sigsep/open-unmix-pytorch">Open-Unmix</a>
+source separation model (version <code class="docutils literal notranslate"><span class="pre">umxhq</span></code>) distributed through <a class="reference external" href="https://pytorch.org/hub/">PyTorch Hub</a></p></li>
+</ol>
+<p>Both system use the same enhancement strategy; using the music separation model, the baseline system estimates the
+VDBO (<code class="docutils literal notranslate"><span class="pre">vocals</span></code>, <code class="docutils literal notranslate"><span class="pre">drums</span></code>, <code class="docutils literal notranslate"><span class="pre">bass</span></code> and <code class="docutils literal notranslate"><span class="pre">others</span></code>) stems. Then, they apply a simple NAL-R [<a class="reference internal" href="#4-references"><span class="xref myst">2</span></a>] fitting amplification to each of them.
+These results on eight mono signals (four from the left channel and four from the right channel). Finally, each signal is downsampled to 24000 Hertz, convert to 16bit precision and
+encoded using the lossless FLAC compression. These eight signal are then used for the objective evaluation (HAAQI).</p>
+<p>The baselines also provide a remixing strategy to generate a stereo signal for each listener. This is done by summing
+the amplified VDBO stems, where each channel (left and right in stereo) is composed of the addition of the corresponding
+four stems. This stereo remixed signal is then used for subjective evaluation (listening panel).</p>
+<p>To run the baseline enhancement system first, make sure that <code class="docutils literal notranslate"><span class="pre">paths.root</span></code> in <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> points to
+where you have installed the Cadenza data. This parameter defaults to the working directory.
+You can also define your own <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code> to store the enhanced signals and evaluated results and select what
+music separation model you want to employ.</p>
+<p>Then run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>enhance.py
+</pre></div>
+</div>
+<p>Alternatively, you can provide the root variable on the command line, e.g.,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>enhance.py<span class="w"> </span>path.root<span class="o">=</span>/full/path/to/my/cadenza_data
+</pre></div>
+</div>
+<p>To get a full list of the parameters, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>enhance.py<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>The folder <code class="docutils literal notranslate"><span class="pre">enhanced_signals</span></code> will appear in the <code class="docutils literal notranslate"><span class="pre">exp</span></code> folder.</p>
+</section>
+<section id="evaluation">
+<h3>2.2 Evaluation<a class="headerlink" href="#evaluation" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">evaluate.py</span></code> script takes the eight VDBO signals stored in <code class="docutils literal notranslate"><span class="pre">enhanced_signals</span></code> and computes the
+HAAQI [<a class="reference internal" href="#4-references"><span class="xref myst">3</span></a>] score. The final score for the sample is the average of the scores of each stem.</p>
+<p>To run the evaluation stage, make sure that <code class="docutils literal notranslate"><span class="pre">path.root</span></code> is set in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> file and then run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>evaluate.py
+</pre></div>
+</div>
+<p>A csv file containing the eight HAAQI scores and the combined score will be generated in the <code class="docutils literal notranslate"><span class="pre">path.exp_folder</span></code>.</p>
+<p>To check the HAAQI code, see <a class="reference internal" href="#../../../../clarity/evaluator/haaqi"><span class="xref myst">here</span></a>.</p>
+<p>Please note: you will not get identical HAAQI scores for the same signals if the random seed is not defined.
+This is due to the  random noises generated within HAAQI, but the differences should be sufficiently small.
+For reproducibility, in the given recipe, the random seed for each signal is set as the last eight digits
+of the song md5.</p>
+</section>
+</section>
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<p>The overall HAAQI score for each baseline is:</p>
+<ul class="simple">
+<li><p>Demucs: <strong>0.2592</strong></p></li>
+<li><p>Open-Unmix: <strong>0.2273</strong></p></li>
+</ul>
+</section>
+<section id="references">
+<h2>4. References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[1] Défossez, A. “Hybrid Spectrogram and Waveform Source Separation”. Proceedings of the ISMIR 2021 Workshop on Music Source Separation. <a class="reference external" href="https://arxiv.org/abs/2111.03600">doi:10.48550/arXiv.2111.03600</a></p></li>
+<li><p>[2] Byrne, Denis, and Harvey Dillon. “The National Acoustic Laboratories’(NAL) new procedure for selecting the gain and frequency response of a hearing aid.” Ear and hearing 7.4 (1986): 257-265. <a class="reference external" href="https://doi.org/10.1097/00003446-198608000-00007">doi:10.1097/00003446-198608000-00007</a></p></li>
+<li><p>[3] Kates J M, Arehart K H. “The Hearing-Aid Audio Quality Index (HAAQI)”. IEEE/ACM transactions on audio, speech, and language processing, 24(2), 354–365. <a class="reference external" href="https://doi.org/10.1109%2FTASLP.2015.2507858">doi:10.1109/TASLP.2015.2507858</a></p></li>
+<li><p>[4] R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello, “MedleyDB: A Multitrack Dataset for Annotation-Intensive MIR Research”, in 15th International Society for Music Information Retrieval Conference, Taipei, Taiwan, Oct. 2014. <a class="reference external" href="https://archives.ismir.net/ismir2014/paper/000322.pdf">pdf</a></p></li>
+<li><p>[5] Rachel M. Bittner, Julia Wilkins, Hanna Yip and Juan P. Bello, “MedleyDB 2.0: New Data and a System for Sustainable Data Collection” Late breaking/demo extended abstract, 17th International Society for Music Information Retrieval (ISMIR) conference, August 2016. <a class="reference external" href="https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/08/bittner-medleydb.pdf">pdf</a></p></li>
+<li><p>[6] Zhiyao Duan, Bryan Pardo and Changshui Zhang, “Multiple fundamental frequency estimation by modeling spectral peaks and non-peak regions,” IEEE Trans. Audio Speech  Language Process., vol. 18, no. 8, pp. 2121-2133, 2010. <a class="reference external" href="https://doi.org/10.1109/TASL.2010.2042119">doi:10.1109/TASL.2010.2042119</a></p></li>
+<li><p>[7] Defferrard, M., Benzi, K., Vandergheynst, P., &amp; Bresson, X. (2016). “FMA: A dataset for music analysis”. arXiv preprint arXiv:1612.01840. <a class="reference external" href="https://doi.org/10.48550/arXiv.1612.01840">doi:10.48550/arXiv.1612.01840</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cad2/clarity/recipes/cad1/task1/baseline"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure">1. Data structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-data">1.1 Necessary data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-optional-data">1.2 Additional optional data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-data">1.3 Demo data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baseline">2. Baseline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancement">2.1 Enhancement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">2.2 Evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clarity/Cadenza Teams
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

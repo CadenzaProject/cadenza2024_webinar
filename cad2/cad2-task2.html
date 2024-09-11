@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -469,7 +469,7 @@ document.write(`
 </section>
 <section id="create-the-environment">
 <h2>Create the environment<a class="headerlink" href="#create-the-environment" title="Link to this heading">#</a></h2>
-<p>We first need to install the Clarity package. For this, we use the tag version of the challenge, <strong>v6.0.0</strong></p>
+<p>We first need to install the Clarity package. For this, we use the tag version of the challenge, <strong>v0.6.1</strong></p>
 <section id="setting-the-location-of-the-project">
 <h3>Setting the Location of the Project<a class="headerlink" href="#setting-the-location-of-the-project" title="Link to this heading">#</a></h3>
 <p>For convenience, we are setting an environment variable with the location of the root working directory of the project. This variable will be used in various places throughout the tutorial. Please change this value to reflect where you have installed this notebook on your system.</p>
@@ -482,15 +482,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/Extended/Projects/cadenza_tutorials
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/gerardoroadabike/anaconda3/envs/tutorials/lib/python3.11/site-packages/IPython/core/magics/osm.py:417: UserWarning: This is now an optional IPython functionality, setting dhist requires you to install the `pickleshare` library.
-  self.shell.db[&#39;dhist&#39;] = compress_dhist(dhist)[-100:]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,7 +491,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cloning git repo...&quot;</span><span class="p">)</span>
-<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>v0.6.0<span class="w"> </span>https://github.com/claritychallenge/clarity.git
+<span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>v0.6.1<span class="w"> </span>https://github.com/claritychallenge/clarity.git
 
 <span class="n">clear_output</span><span class="p">()</span>
 </pre></div>
