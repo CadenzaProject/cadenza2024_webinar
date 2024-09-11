@@ -463,7 +463,8 @@ document.write(`
 </ul>
 <section id="using-mbc-amplification">
 <h2>Using MBC amplification<a class="headerlink" href="#using-mbc-amplification" title="Link to this heading">#</a></h2>
-<p>To learn more about our MBC, please read the <a class="reference internal" href="../signal_processing/mbc.html"><span class="doc std std-doc">MBC documentation</span></a>.</p>
+<p>To learn more about our MBC, please read the <a class="reference internal" href="../signal_processing/mbc.html"><span class="doc std std-doc">MBC documentation</span></a>.
+The MBC is a non-linear amplification.</p>
 <p>For our example:</p>
 <ul class="simple">
 <li><p>Reference signal: we will load a single-channel sample signal from librosa.</p></li>
@@ -545,8 +546,8 @@ document.write(`
 <span class="kn">from</span> <span class="nn">clarity.utils.signal_processing</span> <span class="kn">import</span> <span class="n">resample</span>
 
 <span class="n">compute_haaqi</span><span class="p">(</span>
-    <span class="n">processed_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_reference_mbc</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
-    <span class="n">reference_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_processed_mbc</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
+    <span class="n">processed_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_reference_mbc</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
+    <span class="n">reference_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_processed_mbc</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
     <span class="n">processed_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
     <span class="n">reference_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
     <span class="n">audiogram</span><span class="o">=</span><span class="n">audiogram</span><span class="p">,</span>
@@ -568,7 +569,7 @@ document.write(`
 </section>
 <section id="using-nal-r-amplification">
 <h2>Using NAL-R amplification<a class="headerlink" href="#using-nal-r-amplification" title="Link to this heading">#</a></h2>
-<p>Now, we will run the same signal using the NAL-R prescription.</p>
+<p>Now, we will run the same signal using the NAL-R prescription, which is a linear amplification.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -591,8 +592,8 @@ document.write(`
 
 <span class="c1"># Compute HAAQI</span>
 <span class="n">compute_haaqi</span><span class="p">(</span>
-    <span class="n">processed_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_reference</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
-    <span class="n">reference_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_processed</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
+    <span class="n">processed_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_reference</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
+    <span class="n">reference_signal</span><span class="o">=</span><span class="n">resample</span><span class="p">(</span><span class="n">compressed_processed</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="mi">24000</span><span class="p">),</span>
     <span class="n">processed_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
     <span class="n">reference_sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
     <span class="n">audiogram</span><span class="o">=</span><span class="n">audiogram</span><span class="p">,</span>
