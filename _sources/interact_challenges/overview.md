@@ -1,4 +1,4 @@
-# Stating with a Challenge
+# Starting with a Challenge
 
 In this tutorial will navigate through some files that is common to all challenges.
 
