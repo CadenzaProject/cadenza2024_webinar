@@ -459,6 +459,25 @@ The theoretical part of this tutorial is based on the <a class="reference extern
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Dynamic range compression reduces the dynamic range of a signal by lowering the level of strong peaks while leaving weaker ones unaffected. It is used in audio recording, mixing, and broadcasting.</p>
 <p>Multiband compression applies compression to different frequency bands separately. The audio signal is split into multiple bands using a crossover filter, and each band is processed through its own adjustable compressor. In Cadenza, Linkwitz-Riley crossover filters are used to maintain a smooth frequency response. Compressor parameters like compression ratio, attack/release time, threshold, and knee width can be individually adjusted for each band, allowing detailed control over the signal’s dynamic range.</p>
+<div class="warning admonition">
+<p class="admonition-title">Google Colab</p>
+<p>To run this tutorial on Google Colab, you will need install the PyClarity module by uncommenting and running the next cell.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(&quot;Cloning git repo...&quot;)</span>
+<span class="c1"># !git clone --depth 1 --branch v0.6.1 https://github.com/claritychallenge/clarity.git</span>
+
+<span class="c1"># print(&quot;Installing the pyClarity...\n&quot;)</span>
+<span class="c1"># %cd clarity</span>
+<span class="c1"># %pip install -e .</span>
+
+<span class="c1"># clear_output()</span>
+<span class="c1"># print(&quot;Repository installed&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="linkwitzriley-filter">
 <h3>Linkwitz–Riley filter<a class="headerlink" href="#linkwitzriley-filter" title="Link to this heading">#</a></h3>
 <p>Linkwitz–Riley crossover filter is a combination of lowpass and highpass filters. Each filter is a cascade of lowpass or highpass Butterworth filters. The sum of both filters yields 0 dB at the crossover fequency so that the crossover acts like an allpass filter (and therefore introducing no distortion in the audio signal).</p>

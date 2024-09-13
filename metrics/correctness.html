@@ -462,6 +462,25 @@ document.write(`
 <p>The correlation of Whisper model <code class="docutils literal notranslate"><span class="pre">base.en</span></code> with human performance (Ibrahim data) is 0.69.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/whisper_nh.png"><img alt="Whisper Correctness" class="bg-primary mb-1 align-center" src="../_images/whisper_nh.png" style="width: 400px;" /></a>
 <p>In this case, the transcription was run on the original mixture, that is, without supressing the background accompaniment.</p>
+<div class="warning admonition">
+<p class="admonition-title">Google Colab</p>
+<p>To run this tutorial on Google Colab, you will need install the PyClarity module by uncommenting and running the next cell.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(&quot;Cloning git repo...&quot;)</span>
+<span class="c1"># !git clone --depth 1 --branch v0.6.1 https://github.com/claritychallenge/clarity.git</span>
+
+<span class="c1"># print(&quot;Installing the pyClarity...\n&quot;)</span>
+<span class="c1"># %cd clarity</span>
+<span class="c1"># %pip install -e .</span>
+
+<span class="c1"># clear_output()</span>
+<span class="c1"># print(&quot;Repository installed&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="computing-correctness-in-cadenza">
 <h2>Computing Correctness in Cadenza.<a class="headerlink" href="#computing-correctness-in-cadenza" title="Link to this heading">#</a></h2>
 <p>To automatically compute the intelligibility for a hearing loss listener, we need to simulate how someone with a hearing loss is hearing such signals. For this the signal to evaluate needs:</p>
@@ -477,13 +496,39 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span><span class="s2">&quot;https://github.com/CadenzaProject/cadenza_tutorials/raw/main/_static/audio/Aretha%20Franklin-As%20Long%20As%20You%20There.wav&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-09-13 14:47:03--  https://github.com/CadenzaProject/cadenza_tutorials/raw/main/_static/audio/Aretha%20Franklin-As%20Long%20As%20You%20There.wav
+Resolving github.com (github.com)... 20.26.156.215
+Connecting to github.com (github.com)|20.26.156.215|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/CadenzaProject/cadenza_tutorials/main/_static/audio/Aretha%20Franklin-As%20Long%20As%20You%20There.wav [following]
+--2024-09-13 14:47:03--  https://raw.githubusercontent.com/CadenzaProject/cadenza_tutorials/main/_static/audio/Aretha%20Franklin-As%20Long%20As%20You%20There.wav
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1058448 (1.0M) [audio/wav]
+Saving to: ‘Aretha Franklin-As Long As You There.wav’
+
+Aretha Franklin-As  100%[===================&gt;]   1.01M  --.-KB/s    in 0.09s   
+
+2024-09-13 14:47:03 (11.5 MB/s) - ‘Aretha Franklin-As Long As You There.wav’ saved [1058448/1058448]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
 
 <span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;as long as you hold my hand&quot;</span>
 
 <span class="n">sr</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>
-    <span class="s2">&quot;../_static/audio/Aretha Franklin-As Long As You There.wav&quot;</span>
+    <span class="s2">&quot;Aretha Franklin-As Long As You There.wav&quot;</span>
 <span class="p">)</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
 </pre></div>
@@ -503,7 +548,7 @@ Let’s take a 6-second excerpt from Aretha Franklin’s As Long As You There. T
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">whisper</span>
 
 <span class="n">whisper_model</span> <span class="o">=</span> <span class="n">whisper</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;base.en&#39;</span><span class="p">)</span>
-<span class="n">hypothesis</span> <span class="o">=</span> <span class="n">whisper_model</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;../_static/audio/Aretha Franklin-As Long As You There.wav&quot;</span><span class="p">,</span> <span class="n">fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">hypothesis</span> <span class="o">=</span> <span class="n">whisper_model</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;Aretha Franklin-As Long As You There.wav&quot;</span><span class="p">,</span> <span class="n">fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
 <span class="n">hypothesis</span>
 </pre></div>
 </div>
